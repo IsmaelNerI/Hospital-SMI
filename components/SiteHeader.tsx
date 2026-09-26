@@ -22,7 +22,7 @@ export function SiteHeader() {
       <div className="topline"><div className="wrap topline-inner"><span><i className="live-dot" /> Hospital abierto 24 horas</span><a href={`tel:${hospital.phoneHref}`}><Phone size={14} /> {hospital.phone}</a><span className="top-location"><MapPin size={14} /> Rincón de Romos, Aguascalientes</span></div></div>
       <header className="site-header">
         <div className="wrap nav-row">
-          <Link href="/" className="brand" aria-label="Hospital SMI, inicio"><span className="header-logo-frame"><Image src="/brand/hospital-smi-official.png" alt="Logotipo oficial de Hospital SMI" fill priority sizes="(max-width: 760px) 82px, 108px" className="header-logo-image" /></span><span className="brand-words"><b>Hospital <em>SMI</em></b><small>SERVICIOS MÉDICOS INTEGRADOS</small></span></Link>
+          <Link href="/" className="brand" aria-label="Hospital SMI, inicio"><span className="header-logo-frame"><Image src="/brand/hospital-smi-official.png" alt="Logotipo oficial de Hospital SMI" fill priority sizes="(max-width: 760px) 84px, 112px" className="header-logo-image" /></span></Link>
           <nav className="desktop-nav" aria-label="Navegación principal">
             {groups.map((group) => <div className="nav-group" key={group.label} onMouseEnter={() => setActive(group.label)} onMouseLeave={() => setActive(null)}>
               <button className={active === group.label ? "nav-trigger active" : "nav-trigger"} aria-expanded={active === group.label} onClick={() => setActive(active === group.label ? null : group.label)}>{group.label}<ChevronDown size={14} /></button>

@@ -34,3 +34,89 @@
 .kidzone-brand-card>p{margin:11px 0 0;color:#78878b;font-size:9px;line-height:1.7}
 .pediatric-doctors{margin-top:25px}
 @media(max-width:760px){.header-logo-frame{width:58px;height:39px}.footer-logo-frame{width:76px;height:48px}.kidzone-brand-card{padding:16px}.kidzone-image-wrap{height:290px}}
+
+/* Legibility pass: preserve the visual hierarchy while bringing body copy and controls to comfortable reading sizes. */
+.header-logo-frame{width:112px;height:74px;border:0;background:transparent}
+.header-logo-image{object-fit:contain;object-position:center;filter:none}
+.footer-logo-frame{width:190px;height:126px;border:0;background:transparent}
+.footer-logo-image{object-fit:contain;object-position:left center;filter:none}
+.hero-logo-panel{position:relative;width:min(100%,560px);aspect-ratio:3/2;overflow:hidden;background:#122e3d;box-shadow:0 20px 54px #122e3d20}
+.hero-logo-image{object-fit:contain;object-position:center;filter:none}
+.hero-art{justify-content:center}
+.art-note{right:0;bottom:5%}
+.topline{font-size:12px}
+.nav-trigger,.nav-contact{font-size:13px}
+.header-call{font-size:11px}
+.eyebrow{font-size:10px}
+.micro-label{font-size:10px}
+.button{font-size:12px}
+.hero-copy>p{font-size:16px;line-height:1.75}
+.hero-directions{font-size:12px}
+.hero-bottom{font-size:10px}
+.hero-bottom a{font-size:11px}
+.trust-grid b{font-size:12px}
+.trust-grid small{font-size:11px}
+.section-heading>p,.split-heading>p{font-size:14px}
+.route-text b{font-size:21px}
+.route-text small{font-size:12px}
+.specialty-card h3{font-size:23px}
+.specialty-card p{font-size:12px;line-height:1.7}
+.specialty-link{font-size:11px}
+.story-copy>p{font-size:14px}
+.capacity-section p{font-size:14px}
+.doctor-specialty{font-size:10px}
+.doctor-meta h3{font-size:18px}
+.doctor-meta p{font-size:11px}
+.doctor-meta>a{font-size:11px}
+.doctors-bottom>span{font-size:11px}
+.insurance-layout p,.location-copy>p{font-size:14px}
+.location-address b{font-size:13px}
+.location-address small{font-size:11px}
+.location-tel{font-size:12px}
+.closing-actions p{font-size:13px}
+.closing-actions>a:not(.button){font-size:11px}
+.footer-brand>p{font-size:12px}
+.footer-phone{font-size:14px}
+.footer-title{font-size:10px}
+.footer-main>div>a:not(.brand){font-size:11px}
+.footer-address p{font-size:11px}
+.footer-bottom{font-size:10px}
+.inner-hero>div>p{font-size:15px}
+.detail-copy,.two-column-content p{font-size:14px}
+.care-note b{font-size:19px}
+.care-note p,.related-panel>p{font-size:12px}
+.info-block h2{font-size:26px}
+.info-block p{font-size:12px}
+.service-row>b{font-size:21px}
+.service-row>small{font-size:11px}
+.contact-item b{font-size:12px}
+.contact-item small{font-size:11px}
+.medical-disclaimer{font-size:11px}
+.fine-print{font-size:11px}
+.action-bar>a{font-size:11px}
+@media(max-width:1100px){.nav-trigger,.nav-contact{font-size:11px}.hero-logo-panel{width:100%}}
+@media(max-width:760px){
+  .header-logo-frame{width:91px;height:61px}
+  .footer-logo-frame{width:160px;height:106px}
+  .hero-layout{gap:8px}
+  .hero-art{height:auto;aspect-ratio:1.65;margin:22px 0 6px}
+  .hero-logo-panel{width:100%;height:100%;aspect-ratio:auto}
+  .art-note{right:8px;bottom:8px;font-size:9px;padding:8px 10px}
+  .hero-copy>p{font-size:14px}
+  .hero h1{font-size:clamp(43px,10vw,58px)}
+  .eyebrow{font-size:9px}
+  .trust-grid b{font-size:11px}
+  .trust-grid small{font-size:10px}
+  .route-text b{font-size:16px}
+  .route-text small{font-size:10px}
+  .specialty-card h3{font-size:19px}
+  .specialty-card p{font-size:10px}
+  .story-copy>p,.capacity-section p,.insurance-layout p,.location-copy>p{font-size:12px}
+  .doctor-meta h3{font-size:15px}
+  .doctor-meta p{font-size:10px}
+  .footer-main>div>a:not(.brand){font-size:10px}
+  .footer-bottom{font-size:9px}
+  .inner-hero>div>p{font-size:13px}
+  .detail-copy,.two-column-content p{font-size:12px}
+  .medical-disclaimer,.fine-print{font-size:10px}
+}
