@@ -1,0 +1,8 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { ArrowRight, Phone } from "lucide-react";
+import { InnerPage } from "@/components/InnerPage";
+import { hospital, publicDoctors } from "@/data/hospital";
+
+export const metadata: Metadata = { title: "Pediatría", description: "Consulta pediátrica vinculada con Hospital SMI en Rincón de Romos." };
+export default function PediatricsPage() { const doctors = publicDoctors.filter((doctor) => doctor.specialty === "Pediatría"); return <InnerPage eyebrow="Especialidades · Pediatría" title="Atención para cada etapa de la infancia" intro="Conoce la atención pediátrica vinculada con Hospital SMI y consulta disponibilidad directamente."><section className="section"><div className="wrap detail-layout"><div><span className="micro-label">PEDIATRÍA</span><h2 className="detail-heading">Cuidar la salud<br/>de niñas y <em>niños.</em></h2><p className="detail-copy">Los especialistas en pediatría vinculados con Hospital SMI pueden orientarte sobre la atención adecuada para cada paciente. Consulta al hospital para disponibilidad, horarios y servicios concretos.</p><a className="button button-dark" href={`tel:${hospital.phoneHref}`}><Phone size={16}/> Consultar disponibilidad</a></div><aside className="related-panel"><span className="micro-label">MÉDICOS VINCULADOS</span>{doctors.map((doctor) => <div className="related-name" key={doctor.slug}><b>{doctor.name}</b><small>{doctor.specialty}</small></div>)}<Link className="text-link" href="/medicos">Ver directorio médico <ArrowRight size={15}/></Link></aside></div></section></InnerPage>; }
