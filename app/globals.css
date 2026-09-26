@@ -120,3 +120,6 @@
   .detail-copy,.two-column-content p{font-size:12px}
   .medical-disclaimer,.fine-print{font-size:10px}
 }
+.hero-art{height:auto;min-height:0;flex-direction:column;gap:12px}
+.art-note{position:relative;right:auto;bottom:auto;align-self:flex-end;margin-right:calc((100% - min(100%,560px))/2)}
+@media(max-width:760px){.hero-art{height:auto;aspect-ratio:auto}.hero-logo-panel{width:100%;height:auto;aspect-ratio:3/2}.art-note{margin-right:0}}
