@@ -28,7 +28,6 @@ export const metadata: Metadata = {
     description:
       "Atención médica cercana y especialidades en Rincón de Romos, Aguascalientes.",
   },
-  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({
