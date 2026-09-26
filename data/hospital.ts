@@ -16,7 +16,7 @@ export type Doctor = {
   initials: string;
   status: VerificationStatus;
   image: string | null;
-  imageCrop?: "artwork-portrait";
+  imageCrop?: "artwork-portrait" | "seated-portrait" | "standing-portrait";
   areas: string[];
   schedule: string | null;
 };
@@ -134,6 +134,7 @@ export const doctors: Doctor[] = [
     initials: "BB",
     status: "specialist_confirmed",
     image: "/images/doctors/baltazar-bertaud-mier.webp",
+    imageCrop: "standing-portrait",
     areas: ["Oftalmología"],
     schedule: null,
   },
@@ -165,6 +166,7 @@ export const doctors: Doctor[] = [
     initials: "SR",
     status: "specialist_confirmed",
     image: "/images/doctors/sergio-ruiz-lopez-edited.webp",
+    imageCrop: "seated-portrait",
     areas: ["Medicina Interna"],
     schedule: null,
   },

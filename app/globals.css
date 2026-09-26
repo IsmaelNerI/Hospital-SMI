@@ -1321,16 +1321,24 @@ address {
   height: 100%;
   object-fit: cover;
 }
-.doctor-photo-artwork .doctor-photo {
+.doctor-photo-artwork-portrait .doctor-photo {
   transform: scale(2.5);
   transform-origin: 51.5% 43.2%;
+}
+.doctor-photo-seated-portrait .doctor-photo {
+  transform: scale(1.55);
+  transform-origin: 52% 20%;
+}
+.doctor-photo-standing-portrait .doctor-photo {
+  transform: scale(1.55);
+  transform-origin: 50% 45%;
 }
 .profile-layout article > .doctor-photo-frame {
   width: 144px;
   height: 144px;
   margin-bottom: 26px;
 }
-.profile-layout article > .doctor-photo-artwork {
+.profile-layout article > .doctor-photo-artwork-portrait {
   width: 112px;
   height: 112px;
 }

@@ -5,7 +5,7 @@ import type { Doctor } from "@/data/hospital";
 export function DoctorIdentity({ doctor }: { doctor: Doctor }) {
   return doctor.image ? (
     <span
-      className={`doctor-photo-frame ${doctor.imageCrop === "artwork-portrait" ? "doctor-photo-artwork" : ""}`}
+      className={`doctor-photo-frame ${doctor.imageCrop ? `doctor-photo-${doctor.imageCrop}` : ""}`}
     >
       <Image
         unoptimized={doctor.imageCrop === "artwork-portrait"}
