@@ -1,8 +1,19 @@
-import type { Metadata } from "next";
-import Link from "next/link";
-import { ArrowRight, Phone } from "lucide-react";
-import { InnerPage } from "@/components/InnerPage";
-import { hospital, publicDoctors } from "@/data/hospital";
-
-export const metadata: Metadata = { title: "Ginecología y Obstetricia", description: "Consulta de Ginecología y Obstetricia vinculada con Hospital SMI en Rincón de Romos." };
-export default function GynecologyPage() { const doctors = publicDoctors.filter((doctor) => doctor.specialty.includes("Ginecología")); return <InnerPage eyebrow="Especialidades · Ginecología y Obstetricia" title="Ginecología y Obstetricia" intro="Consulta especializada en salud ginecológica y obstétrica, con profesionales vinculados con Hospital SMI."><section className="section"><div className="wrap detail-layout"><div><span className="micro-label">ATENCIÓN ESPECIALIZADA</span><h2 className="detail-heading">Cercanía y orientación<br/><em>en cada consulta.</em></h2><p className="detail-copy">Hospital SMI cuenta con autorización sanitaria para realizar actos obstétricos. La consulta, indicaciones y disponibilidad deben confirmarse directamente con el especialista y el hospital.</p><p className="medical-disclaimer">No afirmamos servicios de maternidad, partos, cesáreas, cuneros ni paquetes obstétricos sin confirmación institucional.</p><a className="button button-dark" href={`tel:${hospital.phoneHref}`}><Phone size={16}/> Consultar disponibilidad</a></div><aside className="related-panel"><span className="micro-label">MÉDICOS VINCULADOS</span>{doctors.map((doctor) => <div className="related-name" key={doctor.slug}><b>{doctor.name}</b><small>{doctor.specialty}</small></div>)}<Link className="text-link" href="/medicos">Ver directorio médico <ArrowRight size={15}/></Link></aside></div></section></InnerPage>; }
+import { SpecialtyDetail } from "@/components/SpecialtyDetail";
+import { publicSpecialties } from "@/data/hospital";
+import { pageMetadata } from "@/lib/metadata";
+export const metadata = pageMetadata(
+  "Ginecología y Obstetricia",
+  "Hospital SMI cuenta con autorización para realizar actos obstétricos. Para conocer la disponibilidad de atención obstétrica y servicios relacionados, comunícate directamente con el hospital.",
+  "/ginecologia-obstetricia",
+);
+export default function Page() {
+  return (
+    <SpecialtyDetail
+      specialty={publicSpecialties.find(
+        (s) => s.slug === "ginecologia-obstetricia",
+      )!}
+      title="Ginecología y Obstetricia"
+      description="Hospital SMI cuenta con autorización para realizar actos obstétricos. Para conocer la disponibilidad de atención obstétrica y servicios relacionados, comunícate directamente con el hospital."
+    />
+  );
+}

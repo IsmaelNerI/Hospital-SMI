@@ -1,19 +1,84 @@
-import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Phone } from "lucide-react";
-import { InnerPage } from "@/components/InnerPage";
+import { MapPin, ArrowRight } from "lucide-react";
+import { DoctorIdentity } from "@/components/DoctorCard";
+import { CallButton } from "@/components/Sections";
 import { hospital, publicDoctors } from "@/data/hospital";
-
-export function generateStaticParams() { return publicDoctors.map(({ slug }) => ({ slug })); }
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
-  const { slug } = await params;
-  const doctor = publicDoctors.find((item) => item.slug === slug);
-  return doctor ? { title: doctor.name, description: `${doctor.specialty} vinculado con Hospital SMI en Rincón de Romos.` } : {};
+import { pageMetadata } from "@/lib/metadata";
+export function generateStaticParams() {
+  return publicDoctors.map(({ slug }) => ({ slug }));
 }
-
-export default async function DoctorPage({ params }: { params: Promise<{ slug: string }> }) {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   const { slug } = await params;
-  const doctor = publicDoctors.find((item) => item.slug === slug);
+  const doctor = publicDoctors.find((d) => d.slug === slug);
+  return doctor
+    ? pageMetadata(
+        doctor.name,
+        `${doctor.specialty} en Hospital SMI, Rincón de Romos. Consulta horarios y disponibilidad.`,
+        `/medicos/${slug}`,
+      )
+    : {};
+}
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const doctor = publicDoctors.find((d) => d.slug === slug);
   if (!doctor) notFound();
-  return <InnerPage eyebrow={`Directorio · ${doctor.specialty}`} title={doctor.name} intro={doctor.specialty}><section className="section"><div className="wrap profile-layout"><div className="profile-avatar">{doctor.initials}<span>SMI</span></div><div><span className="micro-label">PERFIL MÉDICO</span><h2 className="detail-heading">Atención por <em>especialidad.</em></h2><p className="detail-copy">Este profesional está vinculado con Hospital SMI. Para conocer su disponibilidad, horario de consulta, formación y servicios, comunícate directamente con el hospital.</p>{doctor.areas.length > 0 && <div className="profile-areas"><b>Áreas profesionales relacionadas</b><ul>{doctor.areas.map((area) => <li key={area}>{area}</li>)}</ul></div>}<p className="medical-disclaimer">Los servicios y procedimientos dependen del especialista y deben confirmarse directamente. No contamos con horarios verificados para publicar en este perfil.</p><a className="button button-dark" href={`tel:${hospital.phoneHref}`}><Phone size={16}/> Consultar disponibilidad</a></div></div></section></InnerPage>;
+  return (
+    <div className="wrap profile-page">
+      <nav className="breadcrumbs" aria-label="Ruta de navegación">
+        <Link href="/">Inicio</Link>
+        <span>/</span>
+        <Link href="/medicos">Directorio médico</Link>
+        <span>/</span>
+        <span>Perfil médico</span>
+      </nav>
+      <div className="profile-layout">
+        <article>
+          <DoctorIdentity doctor={doctor} />
+          <span className="eyebrow">{doctor.specialty}</span>
+          <h1>{doctor.name}</h1>
+          <section className="profile-areas">
+            <h2>Áreas profesionales</h2>
+            <ul>
+              {doctor.areas.map((a) => (
+                <li key={a}>{a}</li>
+              ))}
+            </ul>
+          </section>
+          <div className="profile-location">
+            <MapPin size={23} />
+            <div>
+              <h2>Hospital SMI</h2>
+              <address>
+                {hospital.address}
+                <br />
+                {hospital.city}
+              </address>
+              <Link className="text-link" href="/contacto">
+                Contacto y ubicación <ArrowRight size={18} />
+              </Link>
+            </div>
+          </div>
+        </article>
+        <aside className="appointment-card">
+          <span className="eyebrow">HORARIOS Y DISPONIBILIDAD</span>
+          <h2>Consulta con el hospital.</h2>
+          <p>
+            Comunícate con Hospital SMI para conocer los horarios y
+            disponibilidad del especialista.
+          </p>
+          <CallButton label="Consultar disponibilidad" />
+          <p className="appointment-phone">{hospital.phone}</p>
+        </aside>
+      </div>
+    </div>
+  );
 }

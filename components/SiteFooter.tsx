@@ -1,8 +1,59 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowUpRight, MapPin, Phone } from "lucide-react";
-import { hospital, publicSpecialties } from "@/data/hospital";
-
+import { hospital } from "@/data/hospital";
 export function SiteFooter() {
-  return <footer className="site-footer"><div className="wrap footer-main"><div className="footer-brand"><Link href="/" className="brand brand-footer" aria-label="Hospital SMI, inicio"><span className="footer-logo-frame"><Image src="/brand/hospital-smi-official.png" alt="Logotipo oficial de Hospital SMI" fill sizes="210px" className="footer-logo-image" /></span></Link><p>Atención médica cercana y respaldo hospitalario para Rincón de Romos y la región.</p><a className="footer-phone" href={`tel:${hospital.phoneHref}`}><Phone size={16} />{hospital.phone}</a></div><div><span className="footer-title">Hospital</span><Link href="/hospital">Quiénes somos</Link><Link href="/hospital/historia">Historia y trayectoria</Link><Link href="/hospital/instalaciones">Instalaciones</Link><Link href="/contacto">Contacto y ubicación</Link></div><div><span className="footer-title">Especialidades</span>{publicSpecialties.slice(0, 5).map((item) => <Link key={item.slug} href={`/especialidades/${item.slug}`}>{item.name}</Link>)}<Link href="/especialidades" className="footer-all">Ver todas <ArrowUpRight size={13} /></Link></div><div><span className="footer-title">Pacientes</span><Link href="/medicos">Directorio médico</Link><Link href="/pacientes">Antes de tu visita</Link><Link href="/seguros-convenios">Seguros y convenios</Link><Link href="/aviso-de-privacidad">Aviso de privacidad</Link></div><div className="footer-address"><span className="footer-title">Visítanos</span><p><MapPin size={15} />{hospital.address}<br />C.P. {hospital.postalCode}<br />{hospital.city}</p><a href={hospital.mapUrl} target="_blank" rel="noreferrer">Cómo llegar <ArrowUpRight size={13} /></a><span className="hours-pill"><i className="live-dot" /> Abierto 24 horas</span></div></div><div className="wrap footer-bottom"><span>© 2026 Hospital SMI S.A. de C.V. · Todos los derechos reservados.</span><span>Presencia digital por <a href="https://crehado.com" target="_blank" rel="noreferrer">CreHado Digital</a></span></div></footer>;
+  return (
+    <footer className="site-footer">
+      <div className="wrap footer-main">
+        <div className="footer-brand">
+          <Link href="/" aria-label="Hospital SMI, inicio">
+            <Image
+              src="/brand/hospital-smi-official.png"
+              alt="Hospital SMI"
+              width={145}
+              height={97}
+            />
+          </Link>
+          <p>Atención médica en Rincón de Romos y la región.</p>
+          <a className="footer-phone" href={`tel:${hospital.phoneHref}`}>
+            {hospital.phone}
+          </a>
+        </div>
+        <div>
+          <h3>Hospital</h3>
+          <Link href="/hospital">Nuestro hospital</Link>
+          <Link href="/servicios">Atención hospitalaria</Link>
+          <Link href="/especialidades">Especialidades</Link>
+          <Link href="/medicos">Directorio médico</Link>
+        </div>
+        <div>
+          <h3>Pacientes</h3>
+          <Link href="/pacientes">Antes de tu visita</Link>
+          <Link href="/seguros-convenios">Seguros y convenios</Link>
+          <Link href="/contacto">Contacto y ubicación</Link>
+        </div>
+        <div className="footer-address">
+          <h3>Visítanos</h3>
+          <address>
+            16 de Septiembre 122
+            <br />
+            Guadalupe / El Chaveño
+            <br />
+            20405 Rincón de Romos, Ags.
+          </address>
+          <a href={hospital.mapUrl} target="_blank" rel="noreferrer">
+            Cómo llegar ↗
+          </a>
+          <span className="hours">
+            <i className="live-dot" />
+            Abierto 24 horas
+          </span>
+        </div>
+      </div>
+      <div className="wrap footer-bottom">
+        <span>© {new Date().getFullYear()} Hospital SMI S.A. de C.V.</span>
+        <span>Diseño y desarrollo · CreHado Digital</span>
+      </div>
+    </footer>
+  );
 }

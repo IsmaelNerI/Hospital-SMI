@@ -1,7 +1,36 @@
 import Link from "next/link";
-import { ArrowUpRight, Plus } from "lucide-react";
+import {
+  ArrowUpRight,
+  Baby,
+  Eye,
+  HeartPulse,
+  Stethoscope,
+  Activity,
+  Accessibility,
+  Scan,
+  Microscope,
+} from "lucide-react";
 import type { Specialty } from "@/data/hospital";
-
-export function SpecialtyCard({ specialty, index }: { specialty: Specialty; index: number }) {
-  return <Link href={`/especialidades/${specialty.slug}`} className="specialty-card"><span className="specialty-index">0{index + 1}</span><span className="specialty-plus"><Plus size={17} /></span><h3>{specialty.name}</h3><p>{specialty.description}</p><span className="specialty-link">Conocer especialidad <ArrowUpRight size={14} /></span></Link>;
+const icons = {
+  "medicina-interna": Stethoscope,
+  pediatria: Baby,
+  "ginecologia-obstetricia": HeartPulse,
+  urologia: Activity,
+  oftalmologia: Eye,
+  "cirugia-general": Microscope,
+  coloproctologia: Scan,
+  "geriatria-gerontologia": Accessibility,
+};
+export function SpecialtyCard({ specialty }: { specialty: Specialty }) {
+  const Icon = icons[specialty.slug as keyof typeof icons] ?? Stethoscope;
+  return (
+    <Link href={`/especialidades/${specialty.slug}`} className="specialty-card">
+      <Icon size={28} strokeWidth={1.5} />
+      <h3>{specialty.name}</h3>
+      <p>{specialty.description}</p>
+      <span className="specialty-link">
+        Conocer especialidad <ArrowUpRight size={18} />
+      </span>
+    </Link>
+  );
 }

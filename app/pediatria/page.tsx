@@ -1,9 +1,17 @@
-import type { Metadata } from "next";
-import Image from "next/image";
-import Link from "next/link";
-import { ArrowRight, Phone } from "lucide-react";
-import { InnerPage } from "@/components/InnerPage";
-import { hospital, publicDoctors } from "@/data/hospital";
-
-export const metadata: Metadata = { title: "Pediatría", description: "Consulta pediátrica vinculada con Hospital SMI en Rincón de Romos." };
-export default function PediatricsPage() { const doctors = publicDoctors.filter((doctor) => doctor.specialty === "Pediatría"); return <InnerPage eyebrow="Especialidades · Pediatría" title="Atención para cada etapa de la infancia" intro="Conoce la atención pediátrica vinculada con Hospital SMI y consulta disponibilidad directamente."><section className="section"><div className="wrap detail-layout"><div><span className="micro-label">PEDIATRÍA</span><h2 className="detail-heading">Cuidar la salud<br/>de niñas y <em>niños.</em></h2><p className="detail-copy">Los especialistas en pediatría vinculados con Hospital SMI pueden orientarte sobre la atención adecuada para cada paciente. Consulta al hospital para disponibilidad, horarios y servicios concretos.</p><a className="button button-dark" href={`tel:${hospital.phoneHref}`}><Phone size={16}/> Consultar disponibilidad</a><aside className="related-panel pediatric-doctors"><span className="micro-label">MÉDICOS VINCULADOS</span>{doctors.map((doctor) => <div className="related-name" key={doctor.slug}><b>{doctor.name}</b><small>{doctor.specialty}</small></div>)}<Link className="text-link" href="/medicos">Ver directorio médico <ArrowRight size={15}/></Link></aside></div><aside className="kidzone-brand-card"><span className="micro-label">ESPACIO INFANTIL · SMI KIDZONE</span><div className="kidzone-image-wrap"><Image src="/brand/smi-kidzone-official.png" alt="Logotipo oficial de SMI Kidzone, espacio infantil de Hospital SMI" fill sizes="(max-width: 760px) 90vw, 420px" className="kidzone-logo" /></div><p>Identidad del espacio infantil, presentada como marca complementaria de Hospital SMI.</p></aside></div></section></InnerPage>; }
+import { SpecialtyDetail } from "@/components/SpecialtyDetail";
+import { publicSpecialties } from "@/data/hospital";
+import { pageMetadata } from "@/lib/metadata";
+export const metadata = pageMetadata(
+  "Atención para cada etapa de la infancia",
+  "Atención médica especializada para niñas, niños y adolescentes. Conoce a los pediatras vinculados con Hospital SMI.",
+  "/pediatria",
+);
+export default function Page() {
+  return (
+    <SpecialtyDetail
+      specialty={publicSpecialties.find((s) => s.slug === "pediatria")!}
+      title="Atención para cada etapa de la infancia."
+      description="Atención médica especializada para niñas, niños y adolescentes. Conoce a los pediatras vinculados con Hospital SMI."
+    />
+  );
+}

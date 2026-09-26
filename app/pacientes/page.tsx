@@ -1,7 +1,42 @@
-import type { Metadata } from "next";
-import { ArrowUpRight, Phone } from "lucide-react";
 import { InnerPage } from "@/components/InnerPage";
-import { hospital } from "@/data/hospital";
-
-export const metadata: Metadata = { title: "Información para pacientes", description: "Información práctica para contactar y visitar Hospital SMI." };
-export default function PatientsPage() { return <InnerPage eyebrow="Pacientes" title="Tu visita a Hospital SMI" intro="Estamos preparando esta guía con información confirmada por el hospital. Para dudas actuales, llama directamente a recepción."><section className="section"><div className="wrap info-grid"><div className="info-block"><span className="micro-label">ANTES DE TU VISITA</span><h2>Confirma los detalles por teléfono.</h2><p>Consulta directamente sobre disponibilidad, horarios de especialistas, requisitos o formas de pago antes de acudir.</p><a className="text-link" href={`tel:${hospital.phoneHref}`}><Phone size={15}/> {hospital.phone}</a></div><div className="info-block"><span className="micro-label">UBICACIÓN</span><h2>Hospital abierto 24 horas.</h2><p>{hospital.address}<br/>C.P. {hospital.postalCode}<br/>{hospital.city}</p><a className="text-link" href={hospital.mapUrl} target="_blank" rel="noreferrer">Cómo llegar <ArrowUpRight size={15}/></a></div><div className="info-block"><span className="micro-label">INFORMACIÓN POR CONFIRMAR</span><h2>Una guía que seguirá creciendo.</h2><p>Visitas, estacionamiento, accesibilidad y otros detalles se incorporarán cuando el hospital confirme la información vigente.</p></div></div></section></InnerPage>; }
+import { pageMetadata } from "@/lib/metadata";
+import {
+  VisitChecklist,
+  LocationSection,
+  CallButton,
+} from "@/components/Sections";
+export const metadata = pageMetadata(
+  "Información para pacientes",
+  "Prepara tu visita a Hospital SMI: horarios, disponibilidad, requisitos y ubicación.",
+  "/pacientes",
+);
+export default function Page() {
+  return (
+    <>
+      <InnerPage
+        variant="patient"
+        eyebrow="PACIENTES Y FAMILIAS"
+        title="Prepara tu visita con tranquilidad."
+        intro="Antes de acudir, confirma los detalles de tu atención directamente con el hospital."
+      />
+      <section className="section">
+        <div className="wrap detail-layout">
+          <div>
+            <span className="eyebrow">ANTES DE ACUDIR</span>
+            <h2>Lo que necesitas consultar.</h2>
+            <VisitChecklist />
+          </div>
+          <aside className="appointment-card">
+            <h2>Estamos para orientarte.</h2>
+            <p>
+              Comunícate con Hospital SMI para consultar horarios del
+              especialista, disponibilidad y requisitos.
+            </p>
+            <CallButton label="Consultar por teléfono" />
+          </aside>
+        </div>
+      </section>
+      <LocationSection />
+    </>
+  );
+}

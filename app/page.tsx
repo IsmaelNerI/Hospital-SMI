@@ -1,34 +1,147 @@
 import Link from "next/link";
-import Image from "next/image";
-import { ArrowDown, ArrowRight, ArrowUpRight, BadgeCheck, MapPin, Phone, Plus, ShieldCheck, Stethoscope } from "lucide-react";
-import { SiteHeader } from "@/components/SiteHeader";
-import { SiteFooter } from "@/components/SiteFooter";
-import { ActionBar } from "@/components/ActionBar";
+import {
+  ArrowRight,
+  MapPin,
+  Stethoscope,
+  ClipboardList,
+  HeartPulse,
+} from "lucide-react";
 import { DoctorCard } from "@/components/DoctorCard";
 import { SpecialtyCard } from "@/components/SpecialtyCard";
+import { HospitalPanel } from "@/components/HospitalPanel";
+import {
+  CallButton,
+  SectionHeading,
+  HospitalStory,
+  CapacitySection,
+  LocationSection,
+  FinalCta,
+} from "@/components/Sections";
 import { hospital, publicDoctors, publicSpecialties } from "@/data/hospital";
-
+import { pageMetadata } from "@/lib/metadata";
+export const metadata = pageMetadata(
+  "Atención médica en Rincón de Romos",
+  "Hospital SMI brinda atención hospitalaria y distintas especialidades médicas en Rincón de Romos, Aguascalientes.",
+  "/",
+);
+const quickLinks = [
+  { title: "Encontrar un especialista", href: "/medicos", icon: Stethoscope },
+  { title: "Ver especialidades", href: "/especialidades", icon: HeartPulse },
+  {
+    title: "Información para pacientes",
+    href: "/pacientes",
+    icon: ClipboardList,
+  },
+  { title: "Cómo llegar", href: "/contacto", icon: MapPin },
+];
 export default function HomePage() {
-  const featuredDoctors = publicDoctors.slice(0, 4);
-  return <><SiteHeader /><main>
-    <section className="hero"><div className="hero-grid" /><div className="wrap hero-layout"><div className="hero-copy"><span className="eyebrow"><i /> HOSPITAL PRIVADO <b>·</b> RINCÓN DE ROMOS</span><h1>Atención médica<br />cercana. <em>Respaldo</em><br />hospitalario.</h1><p>Un hospital en tu comunidad, con distintas especialidades médicas y atención abierta las 24 horas.</p><div className="hero-actions"><a className="button button-dark" href={`tel:${hospital.phoneHref}`}><Phone size={16} /> Llamar al hospital <ArrowUpRight size={15} /></a><Link className="button button-outline" href="/especialidades">Ver especialidades <ArrowRight size={15} /></Link></div><Link href="/contacto" className="hero-directions"><MapPin size={15} /> 16 de Septiembre 122 · Cómo llegar</Link></div><div className="hero-art" aria-label="Logotipo oficial de Hospital SMI"><div className="hero-logo-panel"><Image src="/brand/hospital-smi-official.png" alt="Hospital SMI · Servicios Médicos Integrados" fill priority sizes="(max-width: 760px) 90vw, 580px" className="hero-logo-image" /></div><div className="art-note"><span className="live-dot"/> ABIERTO <b>24 H</b></div></div></div><div className="wrap hero-bottom"><span>UN HOSPITAL CERCA DE TI</span><Link href="#rutas">Encuentra tu atención <ArrowDown size={15}/></Link></div></section>
-
-    <section className="trust-strip"><div className="wrap trust-grid"><div><span className="trust-number">2010</span><span><b>Trayectoria registrada</b><small>En Rincón de Romos</small></span></div><div><span className="trust-number">24<span>h</span></span><span><b>Hospital abierto</b><small>Todos los días</small></span></div><div><span className="trust-number"><Stethoscope size={28}/></span><span><b>Especialidades médicas</b><small>Consulta el directorio</small></span></div><div><span className="trust-number"><MapPin size={27}/></span><span><b>Atención local</b><small>Rincón de Romos, Ags.</small></span></div></div></section>
-
-    <section className="section routes-section" id="rutas"><div className="wrap"><div className="section-heading split-heading"><div><span className="eyebrow"><i/> EMPECEMOS POR LO QUE NECESITAS</span><h2>Encuentra la atención<br/><em>que buscas.</em></h2></div><p>Accede directamente al equipo o la información que te ayudará a dar el siguiente paso.</p></div><div className="route-list"><Link href="/servicios"><span className="route-no">01</span><span className="route-icon"><Plus/></span><span className="route-text"><b>Necesito atención médica</b><small>Consulta información general del hospital</small></span><ArrowUpRight className="route-arrow"/></Link><Link href="/medicos"><span className="route-no">02</span><span className="route-icon"><Stethoscope/></span><span className="route-text"><b>Busco un especialista</b><small>Conoce al equipo médico vinculado</small></span><ArrowUpRight className="route-arrow"/></Link><Link href="/especialidades/pediatria"><span className="route-no">03</span><span className="route-icon"><BadgeCheck/></span><span className="route-text"><b>Busco atención pediátrica</b><small>Consulta la especialidad y sus médicos</small></span><ArrowUpRight className="route-arrow"/></Link><Link href="/ginecologia-obstetricia"><span className="route-no">04</span><span className="route-icon"><ShieldCheck/></span><span className="route-text"><b>Busco Ginecología y Obstetricia</b><small>Información sobre atención obstétrica</small></span><ArrowUpRight className="route-arrow"/></Link><Link href="/contacto"><span className="route-no">05</span><span className="route-icon"><Phone/></span><span className="route-text"><b>Quiero comunicarme con el hospital</b><small>Llama o revisa cómo llegar</small></span><ArrowUpRight className="route-arrow"/></Link></div></div></section>
-
-    <section className="section specialties-section"><div className="wrap"><div className="section-heading"><span className="eyebrow"><i/> ATENCIÓN ESPECIALIZADA</span><h2>Un equipo médico<br/>para distintas <em>necesidades.</em></h2><p>Conoce las especialidades vinculadas con Hospital SMI y comunícate para consultar disponibilidad.</p></div><div className="specialty-grid">{publicSpecialties.map((specialty, index) => <SpecialtyCard key={specialty.slug} specialty={specialty} index={index}/>)}</div><div className="center-link"><Link className="button button-outline" href="/especialidades">Ver todas las especialidades <ArrowRight size={16}/></Link></div><p className="fine-print">La consulta y disponibilidad dependen de cada especialista. Contacta al hospital para más información.</p></div></section>
-
-    <section className="story-section"><div className="wrap story-layout"><div className="story-visual"><div className="story-pattern"/><div className="story-quote"><span>HOSPITAL SMI</span><b>Desde<br/>2010</b><small>RINCÓN DE ROMOS · AGUASCALIENTES</small></div><div className="story-small-mark">SERVICIOS MÉDICOS INTEGRADOS</div></div><div className="story-copy"><span className="eyebrow"><i/> CERCA DE NUESTRA COMUNIDAD</span><h2>Cuidando a Rincón<br/>de Romos <em>desde 2010.</em></h2><p>Hospital SMI es un hospital general privado con trayectoria en Rincón de Romos. Reunimos en un mismo lugar información sobre el hospital, sus especialidades y los médicos vinculados.</p><p>Una presencia digital clara para que pacientes y familias sepan dónde estamos y cómo comunicarse.</p><Link className="text-link" href="/hospital">Conoce Hospital SMI <ArrowRight size={16}/></Link></div></div></section>
-
-    <section className="capacity-section"><div className="wrap capacity-layout"><div><span className="eyebrow eyebrow-light"><i/> RESPALDO HOSPITALARIO</span><h2>Atención médica,<br/><em>quirúrgica y obstétrica.</em></h2><p>Hospital SMI cuenta con autorización sanitaria para realizar actos quirúrgicos y obstétricos. Para conocer el alcance y la disponibilidad de atención, comunícate directamente con el hospital.</p><Link className="button button-light" href="/servicios">Conocer servicios <ArrowUpRight size={15}/></Link></div><div className="capacity-seal"><div><span>Atención</span></div><small>RESPALDO<br/>HOSPITALARIO</small><span className="seal-line"/></div></div></section>
-
-    <section className="section doctors-section"><div className="wrap"><div className="section-heading split-heading"><div><span className="eyebrow"><i/> DIRECTORIO MÉDICO</span><h2>Conoce a quienes<br/>atienden <em>en SMI.</em></h2></div><p>Explora el directorio y consulta disponibilidad directamente con el hospital. Los horarios se confirman en recepción.</p></div><div className="doctor-grid">{featuredDoctors.map((doctor) => <DoctorCard key={doctor.slug} doctor={doctor}/>)}</div><div className="doctors-bottom"><Link className="button button-outline" href="/medicos">Ver directorio completo <ArrowRight size={16}/></Link><span>Perfiles vinculados al hospital · Fotografías en actualización</span></div></div></section>
-
-    <section className="insurance-section"><div className="wrap insurance-layout"><div className="insurance-mark"><ShieldCheck size={42}/></div><div><span className="eyebrow"><i/> SEGUROS Y CONVENIOS</span><h2>Revisa tu cobertura<br/><em>con nosotros.</em></h2><p>La cobertura y autorización dependen de cada póliza. Confirma directamente con el hospital y tu aseguradora antes de tu atención.</p><Link className="text-link" href="/seguros-convenios">Consultar información <ArrowRight size={16}/></Link></div><div className="insurance-side"><span className="micro-label">ANTES DE TU VISITA</span><b>Un paso claro<br/>empieza con una llamada.</b><a href={`tel:${hospital.phoneHref}`}><Phone size={16}/> {hospital.phone}</a></div></div></section>
-
-    <section className="location-section"><div className="wrap location-layout"><div className="location-copy"><span className="eyebrow"><i/> ESTAMOS EN RINCÓN DE ROMOS</span><h2>Estamos cerca.<br/><em>Cuenta con nosotros.</em></h2><p>Encuentra Hospital SMI en el barrio Guadalupe / El Chaveño.</p><div className="location-address"><MapPin size={19}/><span><b>{hospital.address}</b><small>C.P. {hospital.postalCode} · {hospital.city}</small></span></div><a className="button button-dark" href={hospital.mapUrl} target="_blank" rel="noreferrer">Cómo llegar <ArrowUpRight size={16}/></a><a className="location-tel" href={`tel:${hospital.phoneHref}`}><Phone size={15}/> {hospital.phone}</a></div><div className="map-panel"><div className="map-lines"/><div className="map-road road-a"/><div className="map-road road-b"/><div className="map-road road-c"/><div className="map-label map-label-one">RINCÓN DE ROMOS</div><div className="map-pin"><span><Plus size={17}/></span><b>HOSPITAL SMI</b></div><div className="map-coord">22°14&apos; N&nbsp; 102°19&apos; O</div><a href={hospital.mapUrl} target="_blank" rel="noreferrer" className="map-open">Abrir mapa <ArrowUpRight size={14}/></a></div></div></section>
-
-    <section className="closing-section"><div className="wrap closing-layout"><div><span className="eyebrow eyebrow-light"><i/> HOSPITAL SMI</span><h2>Atención médica<br/><em>cerca de ti.</em></h2></div><div className="closing-actions"><p>Abierto 24 horas. Estamos en Rincón de Romos para orientarte sobre la información y disponibilidad del hospital.</p><a className="button button-light" href={`tel:${hospital.phoneHref}`}><Phone size={16}/> Llamar al hospital</a><Link href="/medicos">Ver médicos <ArrowRight size={15}/></Link><Link href="/contacto">Cómo llegar <ArrowRight size={15}/></Link></div></div></section>
-  </main><SiteFooter/><ActionBar/></>;
+  return (
+    <>
+      <section className="hero">
+        <div className="wrap hero-layout">
+          <div className="hero-copy">
+            <span className="eyebrow">HOSPITAL PRIVADO · RINCÓN DE ROMOS</span>
+            <h1>
+              Atención médica
+              <br className="desktop-break" /> cerca de ti.
+            </h1>
+            <p className="lead">
+              Hospital SMI brinda atención hospitalaria y distintas
+              especialidades médicas en Rincón de Romos, Aguascalientes.
+            </p>
+            <div className="hero-actions">
+              <CallButton />
+              <Link className="button button-outline" href="/especialidades">
+                Ver especialidades <ArrowRight size={18} />
+              </Link>
+            </div>
+            <a
+              className="hero-directions"
+              href={hospital.mapUrl}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <MapPin size={18} />
+              Cómo llegar
+            </a>
+            <span className="hours">
+              <i className="live-dot" />
+              Hospital abierto 24 horas
+            </span>
+          </div>
+          <HospitalPanel />
+        </div>
+      </section>
+      <nav className="wrap quick-links" aria-label="Encuentra tu atención">
+        {quickLinks.map(({ title, href, icon: Icon }) => (
+          <Link href={href} key={href}>
+            <Icon size={25} strokeWidth={1.6} />
+            <span>{title}</span>
+            <ArrowRight size={18} />
+          </Link>
+        ))}
+      </nav>
+      <section className="section">
+        <div className="wrap">
+          <SectionHeading
+            eyebrow="ESPECIALIDADES"
+            title="Atención médica especializada"
+            description="Conoce las especialidades y médicos vinculados con Hospital SMI."
+          />
+          <div className="specialty-grid">
+            {publicSpecialties.map((s) => (
+              <SpecialtyCard key={s.slug} specialty={s} />
+            ))}
+          </div>
+        </div>
+      </section>
+      <HospitalStory />
+      <CapacitySection />
+      <section className="section">
+        <div className="wrap">
+          <SectionHeading
+            eyebrow="NUESTROS ESPECIALISTAS"
+            title="Directorio médico"
+            description="Encuentra al especialista y consulta su disponibilidad."
+            href="/medicos"
+            link="Ver directorio completo"
+          />
+          <div className="doctor-grid">
+            {publicDoctors.slice(0, 4).map((d) => (
+              <DoctorCard key={d.slug} doctor={d} />
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="section surface">
+        <div className="wrap patient-teasers">
+          <div>
+            <ClipboardList size={30} strokeWidth={1.5} />
+            <span className="eyebrow">PARA PACIENTES Y FAMILIAS</span>
+            <h2>Prepara tu visita.</h2>
+            <p>
+              Consulta horarios, disponibilidad y requisitos antes de acudir al
+              hospital.
+            </p>
+            <Link className="text-link" href="/pacientes">
+              Información para pacientes <ArrowRight size={18} />
+            </Link>
+          </div>
+          <div>
+            <span className="eyebrow">SEGUROS Y CONVENIOS</span>
+            <h2>Consulta tu cobertura.</h2>
+            <p>
+              Revisa con el hospital y tu aseguradora las condiciones y
+              autorizaciones aplicables a tu póliza.
+            </p>
+            <Link className="text-link" href="/seguros-convenios">
+              Conocer más <ArrowRight size={18} />
+            </Link>
+          </div>
+        </div>
+      </section>
+      <LocationSection />
+      <FinalCta />
+    </>
+  );
 }

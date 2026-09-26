@@ -1,7 +1,31 @@
-import type { Metadata } from "next";
-import { ArrowUpRight, Clock3, MapPin, Phone } from "lucide-react";
 import { InnerPage } from "@/components/InnerPage";
-import { hospital } from "@/data/hospital";
-
-export const metadata: Metadata = { title: "Contacto y ubicación", description: "Llama a Hospital SMI o encuentra su ubicación en Rincón de Romos, Aguascalientes." };
-export default function ContactPage() { return <InnerPage eyebrow="Contacto" title="Estamos aquí, en Rincón de Romos" intro="Comunícate con Hospital SMI o consulta cómo llegar a nuestra ubicación."><section className="section"><div className="wrap contact-layout"><div className="contact-card"><span className="micro-label">CONTACTO DIRECTO</span><h2>Habla con<br/>Hospital <em>SMI.</em></h2><a className="contact-phone" href={`tel:${hospital.phoneHref}`}><Phone/>{hospital.phone}</a><div className="contact-item"><Clock3 size={17}/><span><b>Hospital abierto 24 horas</b><small>La disponibilidad de cada servicio debe confirmarse.</small></span></div><div className="contact-item"><MapPin size={17}/><span><b>{hospital.address}</b><small>C.P. {hospital.postalCode}<br/>{hospital.city}</small></span></div><a className="button button-dark" href={hospital.mapUrl} target="_blank" rel="noreferrer">Cómo llegar <ArrowUpRight size={16}/></a></div><div className="contact-map"><div className="map-lines"/><div className="map-road road-a"/><div className="map-road road-b"/><div className="map-road road-c"/><div className="map-pin"><span><MapPin size={19}/></span><b>HOSPITAL SMI</b></div><div className="map-coord">RINCÓN DE ROMOS · AGUASCALIENTES</div></div></div></section></InnerPage>; }
+import { pageMetadata } from "@/lib/metadata";
+import { LocationSection, CallButton } from "@/components/Sections";
+export const metadata = pageMetadata(
+  "Contacto y ubicación",
+  "Hospital SMI: 465 851 4729. 16 de Septiembre 122, Rincón de Romos, Aguascalientes.",
+  "/contacto",
+);
+export default function Page() {
+  return (
+    <>
+      <InnerPage
+        variant="patient"
+        eyebrow="CONTACTO"
+        title="Comunícate con Hospital SMI."
+        intro="Consulta horarios de especialistas, disponibilidad y requisitos para tu visita."
+      />
+      <LocationSection />
+      <section className="contact-note surface">
+        <div className="wrap">
+          <h2>Hospital abierto 24 horas.</h2>
+          <p>
+            Para conocer la disponibilidad de la atención que necesitas, llama
+            directamente al hospital.
+          </p>
+          <CallButton />
+        </div>
+      </section>
+    </>
+  );
+}

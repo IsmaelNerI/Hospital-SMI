@@ -1,7 +1,48 @@
-import type { Metadata } from "next";
-import { ArrowUpRight, Phone } from "lucide-react";
 import { InnerPage } from "@/components/InnerPage";
-import { hospital } from "@/data/hospital";
-
-export const metadata: Metadata = { title: "Cirugía", description: "Información sobre la capacidad autorizada para actos quirúrgicos en Hospital SMI." };
-export default function SurgeryPage() { return <InnerPage eyebrow="Servicios · Cirugía" title="Atención quirúrgica" intro="Hospital SMI cuenta con autorización sanitaria para realizar actos quirúrgicos."><section className="section"><div className="wrap detail-layout"><div><span className="micro-label">CAPACIDAD AUTORIZADA</span><h2 className="detail-heading">Información clara<br/>para el siguiente <em>paso.</em></h2><p className="detail-copy">La valoración, indicación, programación y realización de procedimientos dependen de la evaluación médica, del especialista y de la disponibilidad correspondiente.</p><p className="detail-copy">Comunícate con el hospital para conocer información vigente. Los procedimientos que realiza un especialista no se presentan como servicios institucionales hasta su confirmación.</p><a className="button button-dark" href={`tel:${hospital.phoneHref}`}><Phone size={16}/> Solicitar información <ArrowUpRight size={15}/></a></div><div className="note-panel"><span className="micro-label">CADA CASO REQUIERE VALORACIÓN</span><h2>No publicamos un catálogo sin confirmar.</h2><p>Para hablar sobre una necesidad quirúrgica concreta, el primer paso es una valoración con el especialista correspondiente.</p></div></div></section></InnerPage>; }
+import { pageMetadata } from "@/lib/metadata";
+import { DoctorCard } from "@/components/DoctorCard";
+import { publicDoctors } from "@/data/hospital";
+import { CallButton, FinalCta } from "@/components/Sections";
+export const metadata = pageMetadata(
+  "Atención quirúrgica",
+  "Información sobre atención quirúrgica y valoración por especialista en Hospital SMI.",
+  "/cirugia",
+);
+export default function Page() {
+  return (
+    <>
+      <InnerPage
+        variant="institution"
+        eyebrow="CIRUGÍA"
+        title="El primer paso es una valoración médica."
+        intro="Hospital SMI cuenta con autorización sanitaria para realizar actos quirúrgicos."
+      />
+      <section className="section">
+        <div className="wrap detail-layout">
+          <div>
+            <span className="eyebrow">ATENCIÓN QUIRÚRGICA</span>
+            <h2>Orientación para tu atención.</h2>
+            <p className="lead">
+              Los procedimientos quirúrgicos se determinan de acuerdo con la
+              valoración médica y disponibilidad del especialista.
+            </p>
+            <p>
+              Consulta con el hospital los requisitos y la programación
+              correspondiente a tu caso.
+            </p>
+            <CallButton label="Solicitar información" />
+          </div>
+          <aside className="related-panel">
+            <h2>Cirugía General</h2>
+            {publicDoctors
+              .filter((d) => d.specialty.includes("Cirugía General"))
+              .map((d) => (
+                <DoctorCard key={d.slug} doctor={d} />
+              ))}
+          </aside>
+        </div>
+      </section>
+      <FinalCta />
+    </>
+  );
+}
