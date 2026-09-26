@@ -15,7 +15,7 @@ export default function Page() {
         title="Comunícate con Hospital SMI."
         intro="Consulta horarios de especialistas, disponibilidad y requisitos para tu visita."
       />
-      <LocationSection />
+      <LocationSection withPhoto />
       <section className="contact-note surface">
         <div className="wrap">
           <h2>Hospital abierto 24 horas.</h2>

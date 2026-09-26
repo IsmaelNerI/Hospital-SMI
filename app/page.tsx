@@ -69,7 +69,12 @@ export default function HomePage() {
               Hospital abierto 24 horas
             </span>
           </div>
-          <HospitalPanel />
+          <HospitalPanel
+            image={{
+              src: "/images/hospital/entrada.webp",
+              alt: "Entrada de Hospital SMI en Rincón de Romos",
+            }}
+          />
         </div>
       </section>
       <nav className="wrap quick-links" aria-label="Encuentra tu atención">

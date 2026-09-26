@@ -4,13 +4,19 @@ import { ArrowRight } from "lucide-react";
 import type { Doctor } from "@/data/hospital";
 export function DoctorIdentity({ doctor }: { doctor: Doctor }) {
   return doctor.image ? (
-    <Image
-      className="doctor-avatar"
-      src={doctor.image}
-      alt={doctor.name}
-      width={64}
-      height={64}
-    />
+    <span
+      className={`doctor-photo-frame ${doctor.imageCrop === "artwork-portrait" ? "doctor-photo-artwork" : ""}`}
+    >
+      <Image
+        unoptimized={doctor.imageCrop === "artwork-portrait"}
+        className="doctor-photo"
+        src={doctor.image}
+        alt={doctor.name}
+        width={160}
+        height={160}
+        sizes="(max-width: 760px) 88px, 144px"
+      />
+    </span>
   ) : (
     <span className="doctor-avatar" aria-hidden="true">
       {doctor.initials}

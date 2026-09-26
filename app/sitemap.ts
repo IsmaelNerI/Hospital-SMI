@@ -7,6 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const fixed = [
     "",
     "/hospital",
+    "/hospital/instalaciones",
     "/especialidades",
     "/medicos",
     "/servicios",

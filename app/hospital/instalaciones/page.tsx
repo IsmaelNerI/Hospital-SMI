@@ -1,9 +1,22 @@
-import { notFound } from "next/navigation";
-export const metadata = {
-  title: "Instalaciones",
-  robots: { index: false, follow: false },
-};
-// Publish only when approved institutional photography and information are available.
+import { InnerPage } from "@/components/InnerPage";
+import { HospitalGallery } from "@/components/HospitalGallery";
+import { FinalCta } from "@/components/Sections";
+import { pageMetadata } from "@/lib/metadata";
+export const metadata = pageMetadata(
+  "Instalaciones",
+  "Conoce la entrada, recepción y áreas interiores de Hospital SMI en Rincón de Romos.",
+  "/hospital/instalaciones",
+);
 export default function Page() {
-  notFound();
+  return (
+    <>
+      <InnerPage
+        eyebrow="NUESTRO HOSPITAL"
+        title="Conoce Hospital SMI antes de tu visita."
+        intro="Un recorrido por nuestra entrada, recepción y áreas interiores en Rincón de Romos, Aguascalientes."
+      />
+      <HospitalGallery />
+      <FinalCta />
+    </>
+  );
 }

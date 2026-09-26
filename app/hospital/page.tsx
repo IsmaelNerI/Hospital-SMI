@@ -1,3 +1,4 @@
+import { HospitalGallery } from "@/components/HospitalGallery";
 import { InnerPage } from "@/components/InnerPage";
 import { pageMetadata } from "@/lib/metadata";
 import {
@@ -21,6 +22,7 @@ export default function Page() {
         intro="Servicios Médicos Integrados. Atención hospitalaria y especialidades médicas en Rincón de Romos, Aguascalientes."
       />
       <HospitalStory institutional />
+      <HospitalGallery preview />
       <CapacitySection />
       <LocationSection />
       <FinalCta />

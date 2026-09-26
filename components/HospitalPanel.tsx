@@ -1,26 +1,52 @@
 import Image from "next/image";
 import { ArrowUpRight, Clock3, MapPin, Phone } from "lucide-react";
 import { hospital } from "@/data/hospital";
-// Pass an approved facade image (e.g. /images/hospital-fachada.jpg) when available.
+// The institutional photo is supplied locally; the information panel remains a fallback.
 export function HospitalPanel({
   image,
 }: {
   image?: { src: string; alt: string };
 }) {
+  if (image) {
+    return (
+      <figure className="hospital-photo-panel">
+        <div className="hero-photo-frame">
+          <Image
+            src={image.src}
+            alt={image.alt}
+            width={1448}
+            height={1086}
+            sizes="(max-width: 760px) 100vw, 600px"
+            preload
+            className="hero-hospital-photo"
+          />
+          <span className="photo-hours">
+            <i className="live-dot" /> Abierto 24 horas
+          </span>
+        </div>
+        <figcaption>
+          <div>
+            <span className="eyebrow">HOSPITAL SMI · RINCÓN DE ROMOS</span>
+            <b>16 de Septiembre 122</b>
+            <span>Guadalupe / El Chaveño, Aguascalientes</span>
+          </div>
+          <a
+            href={hospital.mapUrl}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Cómo llegar a Hospital SMI en Google Maps"
+          >
+            <ArrowUpRight size={24} />
+          </a>
+        </figcaption>
+      </figure>
+    );
+  }
   return (
     <aside
       className={`hospital-panel ${image ? "with-photo" : ""}`}
       aria-label="Hospital SMI, ubicación y contacto"
     >
-      {image && (
-        <Image
-          src={image.src}
-          alt={image.alt}
-          fill
-          sizes="(max-width: 760px) 100vw, 560px"
-          className="hospital-photo"
-        />
-      )}
       <div className="panel-content">
         <div className="panel-top">
           <span className="panel-wordmark">

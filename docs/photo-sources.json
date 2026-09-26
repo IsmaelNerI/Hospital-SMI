@@ -1,0 +1,148 @@
+[
+  {
+    "file": "public/images/hospital/entrada.webp",
+    "source": "Dising/SMI/Imagen de ChatGPT 26 sept 2026, 05_34_58 p.m..png",
+    "width": 1448,
+    "height": 1086,
+    "provenance": "Supplied by user as hospital photography"
+  },
+  {
+    "file": "public/images/hospital/pasillo.webp",
+    "source": "Dising/SMI/Imagen de ChatGPT 26 sept 2026, 05_35_00 p.m..png",
+    "width": 1086,
+    "height": 1448,
+    "provenance": "Supplied by user as hospital photography"
+  },
+  {
+    "file": "public/images/hospital/acceso.webp",
+    "source": "Dising/SMI/Imagen de ChatGPT 26 sept 2026, 05_35_07 p.m..png",
+    "width": 1448,
+    "height": 1086,
+    "provenance": "Supplied by user as hospital photography"
+  },
+  {
+    "file": "public/images/hospital/recepcion-smi.webp",
+    "source": "Dising/SMI/Imagen de ChatGPT 26 sept 2026, 05_35_09 p.m..png",
+    "width": 1087,
+    "height": 1447,
+    "provenance": "Supplied by user as hospital photography"
+  },
+  {
+    "file": "public/images/hospital/recepcion-principal.webp",
+    "source": "Dising/SMI/Imagen de ChatGPT 26 sept 2026, 05_35_11 p.m..png",
+    "width": 1448,
+    "height": 1086,
+    "provenance": "Supplied by user as hospital photography"
+  },
+  {
+    "file": "public/images/hospital/sala-espera.webp",
+    "source": "Dising/SMI/Imagen de ChatGPT 26 sept 2026, 05_35_22 p.m..png",
+    "width": 1086,
+    "height": 1448,
+    "provenance": "Supplied by user as hospital photography"
+  },
+  {
+    "file": "public/images/hospital/interior.webp",
+    "source": "Dising/SMI/Imagen de ChatGPT 26 sept 2026, 05_35_32 p.m..png",
+    "width": 1086,
+    "height": 1448,
+    "provenance": "Supplied by user as hospital photography"
+  },
+  {
+    "file": "public/images/hospital/circulacion.webp",
+    "source": "Dising/SMI/Imagen de ChatGPT 26 sept 2026, 05_35_36 p.m..png",
+    "width": 1448,
+    "height": 1086,
+    "provenance": "Supplied by user as hospital photography"
+  },
+  {
+    "file": "public/images/hospital/fachada.webp",
+    "source": "Dising/SMI/fachada.jpg",
+    "width": 1086,
+    "height": 1180,
+    "provenance": "Supplied by user as hospital photography"
+  },
+  {
+    "file": "public/images/doctors/ignacio-arturo-mendez-anguiano.webp",
+    "source": "https://pixel-p3.s3.us-east-1.amazonaws.com/doctor/avatar/8c3be655/8c3be655-6e82-4409-bf39-9c8aed3151e2_large.jpg",
+    "width": 1280,
+    "height": 1280,
+    "provenance": "Downloaded from URL and associated with subject by user-supplied research; no independent identity or licensing assertion",
+    "processing": "Higher-resolution original, WebP encoding; no generative changes"
+  },
+  {
+    "file": "public/images/doctors/jose-efrain-macias-macias.webp",
+    "source": "https://mx.mivademecum.com/assets/img/doctors/mx/medico-v2-jose-efrain-macias-macias-317816-b112c223702a.webp?v=b112c223702a",
+    "width": 220,
+    "height": 220,
+    "provenance": "Downloaded from URL and associated with subject by user-supplied research; no independent identity or licensing assertion"
+  },
+  {
+    "file": "public/images/doctors/juan-ricardo-mendez-arteaga.webp",
+    "source": "https://s3.us-east-1.amazonaws.com/doctoralia.com.mx/doctor/1426a2/1426a2a9c54621f08d4228c6be5f930e_large.jpg",
+    "width": 529,
+    "height": 530,
+    "provenance": "Downloaded from URL and associated with subject by user-supplied research; no independent identity or licensing assertion",
+    "processing": "Higher-resolution original, WebP encoding; no generative changes"
+  },
+  {
+    "file": "public/images/doctors/baltazar-bertaud-mier.webp",
+    "source": "https://pixel-p3.s3.us-east-1.amazonaws.com/doctor/avatar/428971cd/428971cd-48ce-4c6a-b872-3d632890820b_large.jpg",
+    "width": 1280,
+    "height": 1280,
+    "provenance": "Downloaded from URL and associated with subject by user-supplied research; no independent identity or licensing assertion",
+    "processing": "Higher-resolution original, WebP encoding; no generative changes"
+  },
+  {
+    "file": "public/images/doctors/atena-gutierrez-perez.webp",
+    "source": "https://pixel-p3.s3.us-east-1.amazonaws.com/doctor/avatar/09c4d0a6/09c4d0a6-3763-41ac-90cc-74639fdc8a02_large.jpg",
+    "width": 1054,
+    "height": 1054,
+    "provenance": "Downloaded from URL and associated with subject by user-supplied research; no independent identity or licensing assertion",
+    "processing": "Higher-resolution original, WebP encoding; no generative changes"
+  },
+  {
+    "file": "public/images/doctors/alfonso-garcia-diosdado.webp",
+    "source": "https://s3.us-east-1.amazonaws.com/doctoralia.com.mx/doctor/e4c3fd/e4c3fdbb6c33ff3766d6397b068a507a_large.jpg",
+    "width": 530,
+    "height": 529,
+    "provenance": "Downloaded from URL and associated with subject by user-supplied research; no independent identity or licensing assertion",
+    "processing": "Higher-resolution original, WebP encoding; no generative changes"
+  },
+  {
+    "file": "public/images/doctors/sergio-ruiz-lopez.webp",
+    "source": "https://pixel-p3.s3.us-east-1.amazonaws.com/doctor/avatar/27f3658a/27f3658a-bd3e-4f51-9fad-52aa09209306_large.jpg",
+    "width": 1280,
+    "height": 1280,
+    "provenance": "Downloaded from URL and associated with subject by user-supplied research; no independent identity or licensing assertion",
+    "processing": "Higher-resolution original, WebP encoding; no generative changes"
+  },
+  {
+    "file": "public/images/doctors/juan-francisco-martinez-tavarez.webp",
+    "source": "https://s3.us-east-1.amazonaws.com/doctoralia.com.mx/doctor/22040f/22040f96d16bedb231387569f3d8c401_large.jpg",
+    "width": 530,
+    "height": 530,
+    "provenance": "Downloaded from URL and associated with subject by user-supplied research; no independent identity or licensing assertion"
+  },
+  {
+    "file": "public/images/hospital/recepcion-directorio.webp",
+    "source": "https://drloop.b-cdn.net/content/img-38231-hospital-smi-s-a-de-c-v.jpg",
+    "width": 720,
+    "height": 405,
+    "provenance": "Downloaded from URL and associated with subject by user-supplied research; no independent identity or licensing assertion"
+  },
+  {
+    "file": "public/images/doctors/sergio-ruiz-lopez-edited.webp",
+    "source": "https://pixel-p3.s3.us-east-1.amazonaws.com/doctor/avatar/27f3658a/27f3658a-bd3e-4f51-9fad-52aa09209306_large.jpg",
+    "processing": "Built-in image_gen: conservative photographic lighting and color correction, preserve identity, expression, clothing, room and framing",
+    "width": 1254,
+    "height": 1254
+  },
+  {
+    "file": "public/images/doctors/ignacio-arturo-mendez-anguiano-edited.webp",
+    "source": "https://pixel-p3.s3.us-east-1.amazonaws.com/doctor/avatar/8c3be655/8c3be655-6e82-4409-bf39-9c8aed3151e2_large.jpg",
+    "processing": "Built-in image_gen: conservative photographic lighting and color correction, preserve identity, expression, clothing, room and framing",
+    "width": 1254,
+    "height": 1254
+  }
+]

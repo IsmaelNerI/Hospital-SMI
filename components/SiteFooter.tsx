@@ -22,6 +22,7 @@ export function SiteFooter() {
         <div>
           <h3>Hospital</h3>
           <Link href="/hospital">Nuestro hospital</Link>
+          <Link href="/hospital/instalaciones">Instalaciones</Link>
           <Link href="/servicios">Atención hospitalaria</Link>
           <Link href="/especialidades">Especialidades</Link>
           <Link href="/medicos">Directorio médico</Link>

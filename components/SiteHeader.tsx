@@ -11,6 +11,7 @@ const groups = [
     description: "Conoce Hospital SMI y nuestra presencia en Rincón de Romos.",
     links: [
       { label: "Nuestro hospital", href: "/hospital" },
+      { label: "Instalaciones", href: "/hospital/instalaciones" },
       { label: "Contacto y ubicación", href: "/contacto" },
     ],
   },

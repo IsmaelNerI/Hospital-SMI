@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -83,6 +84,14 @@ export function HospitalStory({
           </Link>
         </div>
         <div className="story-facts">
+          <Image
+            className="story-photo"
+            src="/images/hospital/recepcion-principal.webp"
+            alt="Recepción principal de Hospital SMI"
+            width={1448}
+            height={1086}
+            sizes="(max-width: 760px) 90vw, 560px"
+          />
           <div className="year-fact">
             <strong>2010</strong>
             <span>Presencia en Rincón de Romos</span>
@@ -172,11 +181,25 @@ export function VisitChecklist() {
     </ol>
   );
 }
-export function LocationSection() {
+export function LocationSection({
+  withPhoto = false,
+}: {
+  withPhoto?: boolean;
+}) {
   return (
     <section className="section">
       <div className="wrap location-layout">
         <div>
+          {withPhoto && (
+            <Image
+              className="location-photo"
+              src="/images/hospital/acceso.webp"
+              alt="Acceso a Hospital SMI con el letrero institucional"
+              width={1448}
+              height={1086}
+              sizes="(max-width: 760px) 90vw, 560px"
+            />
+          )}
           <span className="eyebrow">CONTACTO Y UBICACIÓN</span>
           <h2>
             Estamos en
