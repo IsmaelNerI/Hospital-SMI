@@ -63,12 +63,14 @@
     "provenance": "Supplied by user as hospital photography"
   },
   {
-    "file": "public/images/doctors/ignacio-arturo-mendez-anguiano.webp",
+    "file": "assets/reference/doctors/ignacio-arturo-mendez-anguiano.webp",
     "source": "https://pixel-p3.s3.us-east-1.amazonaws.com/doctor/avatar/8c3be655/8c3be655-6e82-4409-bf39-9c8aed3151e2_large.jpg",
     "width": 1280,
     "height": 1280,
     "provenance": "Downloaded from URL and associated with subject by user-supplied research; no independent identity or licensing assertion",
-    "processing": "Higher-resolution original, WebP encoding; no generative changes"
+    "processing": "Higher-resolution original, WebP encoding; no generative changes",
+    "published": false,
+    "publicationNote": "Retirada en revisión editorial 2026-09-26. Perfil público con monograma."
   },
   {
     "file": "public/images/doctors/jose-efrain-macias-macias.webp",
@@ -94,12 +96,14 @@
     "processing": "Higher-resolution original, WebP encoding; no generative changes"
   },
   {
-    "file": "public/images/doctors/atena-gutierrez-perez.webp",
+    "file": "assets/reference/doctors/atena-gutierrez-perez.webp",
     "source": "https://pixel-p3.s3.us-east-1.amazonaws.com/doctor/avatar/09c4d0a6/09c4d0a6-3763-41ac-90cc-74639fdc8a02_large.jpg",
     "width": 1054,
     "height": 1054,
     "provenance": "Downloaded from URL and associated with subject by user-supplied research; no independent identity or licensing assertion",
-    "processing": "Higher-resolution original, WebP encoding; no generative changes"
+    "processing": "Higher-resolution original, WebP encoding; no generative changes",
+    "published": false,
+    "publicationNote": "Retirada en revisión editorial 2026-09-26. Perfil público con monograma."
   },
   {
     "file": "public/images/doctors/alfonso-garcia-diosdado.webp",
@@ -110,12 +114,14 @@
     "processing": "Higher-resolution original, WebP encoding; no generative changes"
   },
   {
-    "file": "public/images/doctors/sergio-ruiz-lopez.webp",
+    "file": "assets/reference/doctors/sergio-ruiz-lopez.webp",
     "source": "https://pixel-p3.s3.us-east-1.amazonaws.com/doctor/avatar/27f3658a/27f3658a-bd3e-4f51-9fad-52aa09209306_large.jpg",
     "width": 1280,
     "height": 1280,
     "provenance": "Downloaded from URL and associated with subject by user-supplied research; no independent identity or licensing assertion",
-    "processing": "Higher-resolution original, WebP encoding; no generative changes"
+    "processing": "Higher-resolution original, WebP encoding; no generative changes",
+    "published": false,
+    "publicationNote": "Retirada en revisión editorial 2026-09-26. Perfil público con monograma."
   },
   {
     "file": "public/images/doctors/juan-francisco-martinez-tavarez.webp",
@@ -132,17 +138,21 @@
     "provenance": "Downloaded from URL and associated with subject by user-supplied research; no independent identity or licensing assertion"
   },
   {
-    "file": "public/images/doctors/sergio-ruiz-lopez-edited.webp",
+    "file": "assets/reference/doctors/sergio-ruiz-lopez-edited.webp",
     "source": "https://pixel-p3.s3.us-east-1.amazonaws.com/doctor/avatar/27f3658a/27f3658a-bd3e-4f51-9fad-52aa09209306_large.jpg",
     "processing": "Built-in image_gen: conservative photographic lighting and color correction, preserve identity, expression, clothing, room and framing",
     "width": 1254,
-    "height": 1254
+    "height": 1254,
+    "published": false,
+    "publicationNote": "Retirada en revisión editorial 2026-09-26. Perfil público con monograma."
   },
   {
-    "file": "public/images/doctors/ignacio-arturo-mendez-anguiano-edited.webp",
+    "file": "assets/reference/doctors/ignacio-arturo-mendez-anguiano-edited.webp",
     "source": "https://pixel-p3.s3.us-east-1.amazonaws.com/doctor/avatar/8c3be655/8c3be655-6e82-4409-bf39-9c8aed3151e2_large.jpg",
     "processing": "Built-in image_gen: conservative photographic lighting and color correction, preserve identity, expression, clothing, room and framing",
     "width": 1254,
-    "height": 1254
+    "height": 1254,
+    "published": false,
+    "publicationNote": "Retirada en revisión editorial 2026-09-26. Perfil público con monograma."
   }
 ]

@@ -1307,6 +1307,7 @@ address {
   font-size: 21px;
 }
 .doctor-photo-frame {
+  position: relative;
   display: block;
   width: 88px;
   height: 88px;
@@ -1321,26 +1322,10 @@ address {
   height: 100%;
   object-fit: cover;
 }
-.doctor-photo-artwork-portrait .doctor-photo {
-  transform: scale(2.5);
-  transform-origin: 51.5% 43.2%;
-}
-.doctor-photo-seated-portrait .doctor-photo {
-  transform: scale(1.55);
-  transform-origin: 52% 20%;
-}
-.doctor-photo-standing-portrait .doctor-photo {
-  transform: scale(1.55);
-  transform-origin: 50% 45%;
-}
 .profile-layout article > .doctor-photo-frame {
   width: 144px;
   height: 144px;
   margin-bottom: 26px;
-}
-.profile-layout article > .doctor-photo-artwork-portrait {
-  width: 112px;
-  height: 112px;
 }
 @media (min-width: 1700px) {
   .hero {
@@ -1828,5 +1813,347 @@ address {
   *::after {
     transition: none !important;
     animation: none !important;
+  }
+}
+
+/* Editorial directory and professional medical profiles */
+.doctor-card {
+  border: 0;
+  border-top: 1px solid var(--border);
+  border-radius: 0;
+  padding: 28px 0;
+}
+.doctor-license span {
+  display: block;
+  color: var(--navy);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+  margin-top: 3px;
+}
+.doctor-specialty {
+  font-size: 14px;
+}
+.doctor-avatar {
+  width: 88px;
+  height: 88px;
+  border-radius: 4px;
+  font-size: 25px;
+}
+.doctor-photo-frame {
+  border-radius: 4px;
+}
+.featured-doctors {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 32px;
+}
+.featured-doctors .doctor-card {
+  display: block;
+}
+.featured-doctors .doctor-photo-frame {
+  width: 160px;
+  height: 160px;
+  margin-bottom: 25px;
+}
+.featured-doctors .doctor-meta h3 {
+  font-size: 22px;
+}
+.specialty-card {
+  border: 0;
+  border-top: 1px solid var(--border);
+  border-radius: 0;
+  padding: 26px 18px 26px 0;
+  background: transparent;
+}
+.specialty-card:hover {
+  background: #f4f8f8;
+  box-shadow: none;
+}
+.specialty-count {
+  font-size: 14px;
+  color: var(--teal-700);
+  margin-bottom: 18px;
+  display: block;
+}
+.location-card {
+  border-radius: 3px;
+}
+.gallery-preview {
+  grid-template-columns: 1.6fr 1fr;
+  gap: 30px;
+}
+.gallery-preview .gallery-item:first-child {
+  grid-row: span 2;
+}
+.gallery-preview .gallery-image {
+  height: auto;
+  aspect-ratio: 16 / 9;
+  border-radius: 4px;
+}
+.gallery-preview .gallery-item:first-child .gallery-image {
+  aspect-ratio: 16 / 9;
+}
+.gallery-preview .gallery-item:first-child img {
+  object-position: center;
+}
+.gallery-preview .gallery-item h3 {
+  font-size: 20px;
+}
+.medical-profile-header {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 54px;
+  align-items: center;
+  padding: 32px 0 56px;
+  border-bottom: 1px solid var(--border);
+}
+.medical-profile-header .doctor-photo-frame,
+.medical-profile-header .doctor-avatar {
+  width: 220px;
+  height: 275px;
+  border-radius: 4px;
+}
+.medical-profile-header .doctor-avatar {
+  font-size: 56px;
+  background: linear-gradient(145deg, #eaf3f3, #dceaea);
+}
+.medical-profile-header h1 {
+  font-size: clamp(32px, 3.5vw, 50px);
+  max-width: 850px;
+  line-height: 1.12;
+}
+.profile-subtitle {
+  margin: 20px 0 28px;
+}
+.medical-profile-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 100px;
+  padding-top: 52px;
+}
+.medical-section {
+  padding-bottom: 34px;
+  margin-bottom: 34px;
+  border-bottom: 1px solid var(--border);
+}
+.medical-section h2 {
+  font-size: 26px;
+  margin-bottom: 25px;
+}
+.medical-section h3 {
+  font-size: 18px;
+  line-height: 1.5;
+}
+.medical-section p {
+  font-size: 17px;
+  line-height: 1.75;
+}
+.education-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 24px;
+}
+.education-list li {
+  padding-left: 20px;
+  border-left: 2px solid #bfd6d5;
+}
+.education-list p {
+  margin: 5px 0 0;
+}
+.credential-list {
+  margin: 0;
+}
+.credential-list > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+}
+.credential-list > div:last-child {
+  border: 0;
+}
+.credential-list dt {
+  font-size: 17px;
+  font-weight: 500;
+}
+.credential-list small {
+  display: block;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--muted);
+  margin-top: 4px;
+}
+.credential-list dd {
+  margin: 0;
+  font-size: 21px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.035em;
+  color: var(--teal-700);
+}
+.professional-areas {
+  padding-left: 20px;
+  display: grid;
+  gap: 12px;
+}
+.professional-areas li::marker {
+  color: var(--teal-700);
+}
+.profile-sidebar {
+  display: grid;
+  gap: 38px;
+  align-content: start;
+}
+.profile-sidebar .appointment-card {
+  padding: 28px;
+  border-radius: 4px;
+}
+.profile-sidebar .appointment-card h2 {
+  font-size: 28px;
+}
+.profile-sidebar .profile-location h2 {
+  font-size: 20px;
+}
+.profile-phone {
+  display: block;
+  margin-top: 18px;
+  font-size: 19px;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+@media (max-width: 1100px) {
+  .featured-doctors {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .medical-profile-body {
+    gap: 45px;
+    grid-template-columns: minmax(0, 1fr) 300px;
+  }
+}
+@media (max-width: 760px) {
+  .doctor-card {
+    gap: 18px;
+    padding: 24px 0;
+  }
+  .doctor-avatar {
+    width: 70px;
+    height: 70px;
+    font-size: 23px;
+  }
+  .featured-doctors {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 20px;
+  }
+  .featured-doctors .doctor-photo-frame {
+    width: 100%;
+    max-width: 160px;
+    height: auto;
+    aspect-ratio: 1;
+  }
+  .featured-doctors .doctor-meta h3 {
+    font-size: 19px;
+  }
+  .featured-doctors .doctor-specialty {
+    font-size: 13px;
+  }
+  .gallery-preview {
+    grid-template-columns: 1fr;
+  }
+  .gallery-preview .gallery-item:first-child {
+    grid-row: auto;
+  }
+  .gallery-preview .gallery-item:first-child .gallery-image {
+    aspect-ratio: 16 / 9;
+  }
+  .medical-profile-header {
+    grid-template-columns: 1fr;
+    gap: 26px;
+    padding: 10px 0 34px;
+  }
+  .medical-profile-header .doctor-photo-frame,
+  .medical-profile-header .doctor-avatar {
+    width: 144px;
+    height: 180px;
+  }
+  .medical-profile-header .doctor-avatar {
+    font-size: 40px;
+  }
+  .medical-profile-header h1 {
+    font-size: 34px;
+  }
+  .medical-profile-header .eyebrow {
+    line-height: 1.7;
+  }
+  .medical-profile-body {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding-top: 35px;
+  }
+  .medical-section h2 {
+    font-size: 24px;
+  }
+  .credential-list > div {
+    align-items: flex-start;
+  }
+  .credential-list dd {
+    font-size: 19px;
+  }
+  .credential-list dt {
+    font-size: 16px;
+  }
+}
+.specialty-context {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 90px;
+}
+.specialty-context h2 {
+  margin-bottom: 24px;
+}
+.specialty-context h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+.specialty-context > div > p {
+  margin-bottom: 24px;
+}
+.specialty-areas {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.specialty-areas li {
+  border-top: 1px solid var(--border);
+  padding: 22px 0;
+}
+.specialty-areas a {
+  font-weight: 600;
+  color: var(--teal-700);
+}
+.specialty-areas p {
+  margin-top: 8px;
+}
+.institutional-facts {
+  list-style: none;
+  padding: 0;
+  margin: 24px 0 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 26px;
+}
+.institutional-facts li {
+  padding: 18px 0;
+  border-top: 1px solid var(--border);
+  font-size: 15px;
+}
+@media (max-width: 760px) {
+  .specialty-context {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .institutional-facts {
+    grid-template-columns: 1fr;
   }
 }

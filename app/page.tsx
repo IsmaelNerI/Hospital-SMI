@@ -111,10 +111,19 @@ export default function HomePage() {
             href="/medicos"
             link="Ver directorio completo"
           />
-          <div className="doctor-grid">
-            {publicDoctors.slice(0, 4).map((d) => (
-              <DoctorCard key={d.slug} doctor={d} />
-            ))}
+          <div className="doctor-grid featured-doctors">
+            {publicDoctors
+              .filter((d) =>
+                [
+                  "jose-efrain-macias-macias",
+                  "juan-ricardo-mendez-arteaga",
+                  "baltazar-bertaud-mier",
+                  "alfonso-garcia-diosdado",
+                ].includes(d.slug),
+              )
+              .map((d) => (
+                <DoctorCard key={d.slug} doctor={d} />
+              ))}
           </div>
         </div>
       </section>

@@ -5,14 +5,14 @@
 - Fotografías institucionales: entregadas por el usuario en `Dising/SMI`, identificadas por él como fotografías del hospital. Se conserva su contenido; se exportan a WebP para servirlas localmente.
 - Retratos: enlaces del documento de investigación entregado por el usuario. Se recuperaron variantes originales de mayor resolución para Ignacio Méndez, Juan Ricardo Méndez, Baltazar Bertaud, Atena Gutiérrez, Alfonso García y Sergio Ruiz. Identificación según el documento del usuario.
 - Registro de URLs, dimensiones y procesamiento: `photo-sources.json`.
-- Atena: el archivo original contiene una gráfica. La presentación CSS encuadra únicamente su retrato, sin publicar las afirmaciones del anuncio.
+- Atena, Ignacio y Sergio: fotografías retiradas de publicación en la tercera revisión. Se muestran monogramas AG, IM y SR. Los originales y las variantes anteriores se conservan únicamente en `assets/reference/doctors/`, fuera de `public`. No se recortan anuncios ni se modifican expresiones para simular retratos institucionales.
 - José Efraín: la fuente disponible tiene 220 × 220 px. Se muestra en tamaño moderado; no se inventan detalles para simular resolución.
 - José Raúl Montes: conserva monograma porque no se entregó fotografía.
 - No se agregan afirmaciones sobre equipos, servicios o capacidades a partir de fotografías.
 
 ## Ediciones conservadoras con la herramienta integrada image_gen
 
-Archivos originales conservados junto a las variantes `-edited.webp`. El objetivo es mejorar iluminación y balance de color, no sustituir personas o lugares. Las ediciones generativas son interpretaciones retocadas; para una reproducción estrictamente documental se conservan los originales.
+Registro histórico de ediciones descartadas para publicación. Archivos originales conservados junto a las variantes `-edited.webp` en `assets/reference/doctors/`. El objetivo es mejorar iluminación y balance de color, no sustituir personas o lugares. Las ediciones generativas son interpretaciones retocadas; para una reproducción estrictamente documental se conservan los originales.
 
 ### Sergio Ruiz
 

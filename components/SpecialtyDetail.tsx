@@ -63,6 +63,35 @@ export function SpecialtyDetail({
           </div>
         </div>
       </section>
+      <section className="section surface">
+        <div className="wrap specialty-context">
+          <div>
+            <span className="eyebrow">ACERCA DE LA ESPECIALIDAD</span>
+            <h2>Conoce el enfoque de tu atención.</h2>
+            <p>
+              {specialty.description} La valoración individual con el
+              especialista permite definir los siguientes pasos.
+            </p>
+            <Link className="text-link" href="/pacientes">
+              Información para tu visita <ArrowRight size={18} />
+            </Link>
+          </div>
+          <div>
+            <h3>Áreas profesionales del equipo</h3>
+            <p>
+              Las siguientes áreas corresponden a cada médico del directorio.
+            </p>
+            <ul className="specialty-areas">
+              {related.map((d) => (
+                <li key={d.slug}>
+                  <Link href={`/medicos/${d.slug}`}>{d.name}</Link>
+                  <p>{d.areas.join(" · ")}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
       <LocationSection />
     </>
   );

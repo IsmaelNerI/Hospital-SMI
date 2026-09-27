@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { hospitalPhotos } from "@/data/hospital-photos";
 export function HospitalGallery({ preview = false }: { preview?: boolean }) {
   const photos = preview
-    ? [hospitalPhotos[2], hospitalPhotos[1], hospitalPhotos[5]]
+    ? [hospitalPhotos[1], hospitalPhotos[2], hospitalPhotos[5]]
     : hospitalPhotos;
   return (
     <section className="section hospital-gallery">
@@ -41,7 +41,7 @@ export function HospitalGallery({ preview = false }: { preview?: boolean }) {
                   height={photo.height}
                   sizes={
                     preview
-                      ? "(max-width: 760px) 90vw, 33vw"
+                      ? "(max-width: 760px) 90vw, 60vw"
                       : "(max-width: 760px) 90vw, 45vw"
                   }
                 />

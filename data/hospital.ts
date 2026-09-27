@@ -9,6 +9,31 @@ export type Specialty = {
   published: boolean;
 };
 
+export type CredentialVerification = "verified" | "reported" | "pending";
+export type ProfessionalLicense = {
+  number: string;
+  type: "medical-degree" | "specialty" | "subspecialty" | "other";
+  label: string;
+  verification: CredentialVerification;
+  published: boolean;
+  source?: string;
+};
+export type EducationItem = {
+  title: string;
+  institution?: string;
+  verification: CredentialVerification;
+  published: boolean;
+  source?: string;
+};
+export type Certification = {
+  name: string;
+  number?: string;
+  validFrom?: string;
+  validUntil?: string;
+  verification: CredentialVerification;
+  published: boolean;
+  source?: string;
+};
 export type Doctor = {
   slug: string;
   name: string;
@@ -16,7 +41,11 @@ export type Doctor = {
   initials: string;
   status: VerificationStatus;
   image: string | null;
-  imageCrop?: "artwork-portrait" | "seated-portrait" | "standing-portrait";
+  imagePosition?: string;
+  licenses: ProfessionalLicense[];
+  education?: EducationItem[];
+  certifications?: Certification[];
+  experience?: EducationItem[];
   areas: string[];
   schedule: string | null;
 };
@@ -103,9 +132,46 @@ export const doctors: Doctor[] = [
     specialty: "Pediatría",
     initials: "IM",
     status: "specialist_confirmed",
-    image: "/images/doctors/ignacio-arturo-mendez-anguiano-edited.webp",
+    image: null,
     areas: ["Pediatría", "Crecimiento y desarrollo", "Nutrición infantil"],
     schedule: null,
+    licenses: [
+      {
+        number: "3794025",
+        type: "medical-degree",
+        label: "Médico Cirujano",
+        verification: "verified",
+        published: true,
+        source:
+          "https://mx.mivademecum.com/medicos/pediatra/ignacio-arturo-mendez-anguiano",
+      },
+      {
+        number: "5643374",
+        type: "other",
+        label: "Cédula profesional",
+        verification: "reported",
+        published: true,
+        source:
+          "https://mx.mivademecum.com/medicos/pediatra/ignacio-arturo-mendez-anguiano",
+      },
+    ],
+    education: [
+      {
+        title: "Medicina General",
+        institution: "Universidad Autónoma de Zacatecas",
+        verification: "reported",
+        published: true,
+        source:
+          "https://mx.mivademecum.com/medicos/pediatra/ignacio-arturo-mendez-anguiano",
+      },
+      {
+        title: "Postgrado en Pediatría",
+        verification: "reported",
+        published: true,
+        source:
+          "https://mx.mivademecum.com/medicos/pediatra/ignacio-arturo-mendez-anguiano",
+      },
+    ],
   },
   {
     slug: "jose-efrain-macias-macias",
@@ -116,6 +182,54 @@ export const doctors: Doctor[] = [
     image: "/images/doctors/jose-efrain-macias-macias.webp",
     areas: ["Pediatría"],
     schedule: null,
+    imagePosition: "50% 30%",
+    licenses: [
+      {
+        number: "10037475",
+        type: "medical-degree",
+        label: "Médico General",
+        verification: "verified",
+        published: true,
+        source:
+          "https://www.doctoralia.com.mx/jose-efrain-macias-macias/pediatra/rincon-de-romos",
+      },
+      {
+        number: "12287522",
+        type: "specialty",
+        label: "Pediatría",
+        verification: "verified",
+        published: true,
+        source:
+          "https://www.doctoralia.com.mx/jose-efrain-macias-macias/pediatra/rincon-de-romos",
+      },
+    ],
+    education: [
+      {
+        title: "Medicina General",
+        institution: "Universidad Autónoma de Aguascalientes",
+        verification: "reported",
+        published: true,
+        source:
+          "https://www.doctoralia.com.mx/jose-efrain-macias-macias/pediatra/rincon-de-romos",
+      },
+      {
+        title: "Pediatría Médica",
+        institution: "Centenario Hospital Miguel Hidalgo",
+        verification: "reported",
+        published: true,
+        source:
+          "https://www.doctoralia.com.mx/jose-efrain-macias-macias/pediatra/rincon-de-romos",
+      },
+    ],
+    certifications: [
+      {
+        name: "Consejo Mexicano de Pediatría",
+        verification: "reported",
+        published: true,
+        source:
+          "https://www.doctoralia.com.mx/jose-efrain-macias-macias/pediatra/rincon-de-romos",
+      },
+    ],
   },
   {
     slug: "juan-ricardo-mendez-arteaga",
@@ -126,6 +240,41 @@ export const doctors: Doctor[] = [
     image: "/images/doctors/juan-ricardo-mendez-arteaga.webp",
     areas: ["Urología", "Endourología", "Urología oncológica"],
     schedule: null,
+    imagePosition: "50% 30%",
+    licenses: [
+      {
+        number: "7575362",
+        type: "medical-degree",
+        label: "Médico Cirujano",
+        verification: "verified",
+        published: true,
+        source: "https://www.urologoenaguascalientes.com/",
+      },
+      {
+        number: "10954715",
+        type: "specialty",
+        label: "Urología",
+        verification: "verified",
+        published: true,
+        source: "https://www.urologoenaguascalientes.com/",
+      },
+    ],
+    education: [
+      {
+        title: "Médico Cirujano",
+        institution: "Universidad Autónoma de San Luis Potosí",
+        verification: "reported",
+        published: true,
+        source: "https://www.urologoenaguascalientes.com/",
+      },
+      {
+        title: "Urología",
+        institution: "Centro Médico Nacional Siglo XXI",
+        verification: "reported",
+        published: true,
+        source: "https://www.urologoenaguascalientes.com/",
+      },
+    ],
   },
   {
     slug: "baltazar-bertaud-mier",
@@ -134,9 +283,54 @@ export const doctors: Doctor[] = [
     initials: "BB",
     status: "specialist_confirmed",
     image: "/images/doctors/baltazar-bertaud-mier.webp",
-    imageCrop: "standing-portrait",
     areas: ["Oftalmología"],
     schedule: null,
+    imagePosition: "50% 30%",
+    licenses: [
+      {
+        number: "8308939",
+        type: "medical-degree",
+        label: "Médico Cirujano",
+        verification: "verified",
+        published: true,
+        source: "https://drbertaudmier.com/",
+      },
+      {
+        number: "10738871",
+        type: "specialty",
+        label: "Oftalmología",
+        verification: "verified",
+        published: true,
+        source: "https://drbertaudmier.com/",
+      },
+    ],
+    education: [
+      {
+        title: "Médico Cirujano",
+        institution: "Universidad Autónoma de Aguascalientes",
+        verification: "reported",
+        published: true,
+        source: "https://drbertaudmier.com/",
+      },
+      {
+        title: "Cirujano Oftalmólogo",
+        institution: "Centro Médico Nacional de Occidente",
+        verification: "reported",
+        published: true,
+        source: "https://drbertaudmier.com/",
+      },
+    ],
+    certifications: [
+      {
+        name: "Consejo Mexicano de Oftalmología",
+        number: "3727",
+        validFrom: "2022",
+        validUntil: "2027",
+        verification: "reported",
+        published: true,
+        source: "https://drbertaudmier.com/",
+      },
+    ],
   },
   {
     slug: "atena-gutierrez-perez",
@@ -144,10 +338,69 @@ export const doctors: Doctor[] = [
     specialty: "Cirugía General · Coloproctología",
     initials: "AG",
     status: "specialist_confirmed",
-    image: "/images/doctors/atena-gutierrez-perez.webp",
-    imageCrop: "artwork-portrait",
+    image: null,
     areas: ["Cirugía General", "Coloproctología"],
     schedule: null,
+    licenses: [
+      {
+        number: "11535717",
+        type: "other",
+        label: "Cédula profesional",
+        verification: "reported",
+        published: true,
+        source: "https://www.doctoralia.com.mx/perfil/atena-gutierrez-perez",
+      },
+      {
+        number: "11306387",
+        type: "other",
+        label: "Cédula profesional",
+        verification: "reported",
+        published: true,
+        source: "https://www.doctoralia.com.mx/perfil/atena-gutierrez-perez",
+      },
+      {
+        number: "7741581",
+        type: "other",
+        label: "Cédula profesional",
+        verification: "reported",
+        published: true,
+        source: "https://www.doctoralia.com.mx/perfil/atena-gutierrez-perez",
+      },
+    ],
+    education: [
+      {
+        title: "Médico Cirujano",
+        institution: "Universidad Autónoma de Aguascalientes",
+        verification: "reported",
+        published: true,
+        source: "https://www.doctoralia.com.mx/perfil/atena-gutierrez-perez",
+      },
+      {
+        title: "Cirugía General",
+        institution: "Hospital Civil de Tepic Antonio González Guevara",
+        verification: "reported",
+        published: true,
+        source: "https://www.doctoralia.com.mx/perfil/atena-gutierrez-perez",
+      },
+      {
+        title: "Coloproctología",
+        institution: "Hospital General de México",
+        verification: "reported",
+        published: true,
+        source: "https://www.doctoralia.com.mx/perfil/atena-gutierrez-perez",
+      },
+    ],
+    certifications: [
+      {
+        name: "Certificado CONACEM",
+        number: "557",
+        validFrom: "2023-03-01",
+        validUntil: "2029-02-28",
+        verification: "reported",
+        published: true,
+        source: "https://www.ags.gob.mx/turismo/medico/indexEN.html",
+      },
+    ],
   },
   {
     slug: "alfonso-garcia-diosdado",
@@ -158,6 +411,49 @@ export const doctors: Doctor[] = [
     image: "/images/doctors/alfonso-garcia-diosdado.webp",
     areas: ["Geriatría", "Gerontología"],
     schedule: null,
+    imagePosition: "50% 30%",
+    licenses: [
+      {
+        number: "11762105",
+        type: "other",
+        label: "Cédula profesional",
+        verification: "reported",
+        published: true,
+        source: "https://www.doctoralia.com.mx/perfil/alfonso-garcia-diosdado",
+      },
+      {
+        number: "14070070",
+        type: "other",
+        label: "Cédula profesional",
+        verification: "reported",
+        published: true,
+        source: "https://www.doctoralia.com.mx/perfil/alfonso-garcia-diosdado",
+      },
+    ],
+    education: [
+      {
+        title: "Médico Cirujano",
+        institution: "Universidad Autónoma de Aguascalientes",
+        verification: "reported",
+        published: true,
+        source: "https://www.doctoralia.com.mx/perfil/alfonso-garcia-diosdado",
+      },
+      {
+        title: "Geriatría",
+        institution: "Universidad Autónoma de San Luis Potosí",
+        verification: "reported",
+        published: true,
+        source: "https://www.doctoralia.com.mx/perfil/alfonso-garcia-diosdado",
+      },
+      {
+        title: "Rotación internacional",
+        institution:
+          "Intellectus, Centro de Memoria y Cognición · Hospital Universitario San Ignacio, Pontificia Universidad Javeriana · Bogotá, Colombia",
+        verification: "reported",
+        published: true,
+        source: "https://www.doctoralia.com.mx/perfil/alfonso-garcia-diosdado",
+      },
+    ],
   },
   {
     slug: "sergio-ruiz-lopez",
@@ -165,10 +461,52 @@ export const doctors: Doctor[] = [
     specialty: "Medicina Interna",
     initials: "SR",
     status: "specialist_confirmed",
-    image: "/images/doctors/sergio-ruiz-lopez-edited.webp",
-    imageCrop: "seated-portrait",
+    image: null,
     areas: ["Medicina Interna"],
     schedule: null,
+    licenses: [
+      {
+        number: "10176211",
+        type: "medical-degree",
+        label: "Médico General",
+        verification: "verified",
+        published: true,
+        source: "https://agsmedico.com/medicina-interna/sergio-ruiz-lopez",
+      },
+      {
+        number: "12498935",
+        type: "specialty",
+        label: "Medicina Interna",
+        verification: "verified",
+        published: true,
+        source: "https://agsmedico.com/medicina-interna/sergio-ruiz-lopez",
+      },
+    ],
+    education: [
+      {
+        title: "Medicina General",
+        institution: "Universidad Autónoma del Estado de Hidalgo",
+        verification: "reported",
+        published: true,
+        source: "https://agsmedico.com/medicina-interna/sergio-ruiz-lopez",
+      },
+      {
+        title: "Medicina Interna",
+        institution: "Universidad de Guanajuato",
+        verification: "reported",
+        published: true,
+        source: "https://agsmedico.com/medicina-interna/sergio-ruiz-lopez",
+      },
+    ],
+    experience: [
+      {
+        title: "Experiencia profesional",
+        institution: "UMAE No. 1 del IMSS · León, Guanajuato",
+        verification: "reported",
+        published: true,
+        source: "https://www.doctoralia.com.mx/perfil/sergio-ruiz-lopez",
+      },
+    ],
   },
   {
     slug: "juan-francisco-martinez-tavarez",
@@ -179,6 +517,54 @@ export const doctors: Doctor[] = [
     image: "/images/doctors/juan-francisco-martinez-tavarez.webp",
     areas: ["Medicina Interna", "Medicina General"],
     schedule: null,
+    imagePosition: "50% 30%",
+    licenses: [
+      {
+        number: "9370866",
+        type: "other",
+        label: "Cédula profesional",
+        verification: "reported",
+        published: true,
+        source:
+          "https://mx.mivademecum.com/medicos/internista/juan-francisco-martinez-tavarez",
+      },
+      {
+        number: "12317992",
+        type: "other",
+        label: "Cédula profesional",
+        verification: "reported",
+        published: true,
+        source:
+          "https://mx.mivademecum.com/medicos/internista/juan-francisco-martinez-tavarez",
+      },
+    ],
+    education: [
+      {
+        title: "Formación académica",
+        institution: "Universidad Autónoma de Aguascalientes",
+        verification: "reported",
+        published: true,
+        source:
+          "https://mx.mivademecum.com/medicos/internista/juan-francisco-martinez-tavarez",
+      },
+      {
+        title: "Formación académica",
+        institution: "Universidad de Guanajuato",
+        verification: "reported",
+        published: true,
+        source:
+          "https://mx.mivademecum.com/medicos/internista/juan-francisco-martinez-tavarez",
+      },
+      {
+        title: "Formación académica",
+        institution:
+          "UMAE Hospital de Especialidades No. 1, Centro Médico Nacional del Bajío",
+        verification: "reported",
+        published: true,
+        source:
+          "https://mx.mivademecum.com/medicos/internista/juan-francisco-martinez-tavarez",
+      },
+    ],
   },
   {
     slug: "jose-raul-montes-mejia",
@@ -189,6 +575,26 @@ export const doctors: Doctor[] = [
     image: null,
     areas: ["Ginecología y Obstetricia"],
     schedule: null,
+    imagePosition: "50% 30%",
+    licenses: [
+      {
+        number: "4598482",
+        type: "medical-degree",
+        label: "Cédula profesional",
+        verification: "verified",
+        published: true,
+        source: "https://agsmedico.com/ginecologia/montesmejia",
+      },
+      {
+        number: "6938094",
+        type: "specialty",
+        label: "Ginecología y Obstetricia",
+        verification: "verified",
+        published: true,
+        source: "https://agsmedico.com/ginecologia/montesmejia",
+      },
+    ],
+    education: [],
   },
   {
     slug: "erick-muro-sanchez",
@@ -197,6 +603,7 @@ export const doctors: Doctor[] = [
     initials: "EM",
     status: "pending_verification",
     image: null,
+    licenses: [],
     areas: [],
     schedule: null,
   },
@@ -207,6 +614,7 @@ export const doctors: Doctor[] = [
     initials: "FM",
     status: "pending_verification",
     image: null,
+    licenses: [],
     areas: [],
     schedule: null,
   },
@@ -268,3 +676,30 @@ export const pendingServices = [
     published: false,
   },
 ];
+
+// Safe public projection: evidence URLs stay in the server-owned source records.
+export function publicDoctorData(doctor: Doctor): Doctor {
+  const visible = <
+    T extends {
+      published: boolean;
+      verification: CredentialVerification;
+      source?: string;
+    },
+  >(
+    items: T[] = [],
+  ) =>
+    items
+      .filter((item) => item.published && item.verification !== "pending")
+      .map((item) => {
+        const clean = { ...item };
+        delete clean.source;
+        return clean;
+      });
+  return {
+    ...doctor,
+    licenses: visible(doctor.licenses),
+    education: visible(doctor.education),
+    certifications: visible(doctor.certifications),
+    experience: visible(doctor.experience),
+  };
+}

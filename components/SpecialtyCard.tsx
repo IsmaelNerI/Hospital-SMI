@@ -1,31 +1,16 @@
 import Link from "next/link";
-import {
-  ArrowUpRight,
-  Baby,
-  Eye,
-  HeartPulse,
-  Stethoscope,
-  Activity,
-  Accessibility,
-  Scan,
-  Microscope,
-} from "lucide-react";
-import type { Specialty } from "@/data/hospital";
-const icons = {
-  "medicina-interna": Stethoscope,
-  pediatria: Baby,
-  "ginecologia-obstetricia": HeartPulse,
-  urologia: Activity,
-  oftalmologia: Eye,
-  "cirugia-general": Microscope,
-  coloproctologia: Scan,
-  "geriatria-gerontologia": Accessibility,
-};
+import { ArrowUpRight } from "lucide-react";
+import { publicDoctors, type Specialty } from "@/data/hospital";
 export function SpecialtyCard({ specialty }: { specialty: Specialty }) {
-  const Icon = icons[specialty.slug as keyof typeof icons] ?? Stethoscope;
+  const count = publicDoctors.filter(
+    (d) =>
+      d.specialty.includes(specialty.name) || d.areas.includes(specialty.name),
+  ).length;
   return (
     <Link href={`/especialidades/${specialty.slug}`} className="specialty-card">
-      <Icon size={28} strokeWidth={1.5} />
+      <span className="specialty-count">
+        {count} {count === 1 ? "especialista" : "especialistas"}
+      </span>
       <h3>{specialty.name}</h3>
       <p>{specialty.description}</p>
       <span className="specialty-link">

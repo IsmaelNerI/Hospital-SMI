@@ -6,6 +6,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { ActionBar } from "@/components/ActionBar";
 import "./globals.css";
+import { StructuredData } from "@/components/StructuredData";
 const geist = Geist({ subsets: ["latin"], display: "swap" });
 
 const siteUrl =
@@ -39,6 +40,7 @@ export default function RootLayout({
         <a className="skip-link" href="#main-content">
           Ir al contenido
         </a>
+        <StructuredData />
         <SiteHeader />
         <main id="main-content">{children}</main>
         <SiteFooter />

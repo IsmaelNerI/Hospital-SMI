@@ -1,7 +1,11 @@
 import { InnerPage } from "@/components/InnerPage";
 import { pageMetadata } from "@/lib/metadata";
 import { DoctorDirectory } from "@/components/DoctorDirectory";
-import { publicDoctors, publicSpecialties } from "@/data/hospital";
+import {
+  publicDoctors,
+  publicSpecialties,
+  publicDoctorData,
+} from "@/data/hospital";
 import { FinalCta } from "@/components/Sections";
 export const metadata = pageMetadata(
   "Directorio médico",
@@ -19,7 +23,7 @@ export default function Page() {
       <section className="section">
         <div className="wrap">
           <DoctorDirectory
-            doctors={publicDoctors}
+            doctors={publicDoctors.map(publicDoctorData)}
             specialties={publicSpecialties}
           />
         </div>

@@ -4,17 +4,14 @@ import { ArrowRight } from "lucide-react";
 import type { Doctor } from "@/data/hospital";
 export function DoctorIdentity({ doctor }: { doctor: Doctor }) {
   return doctor.image ? (
-    <span
-      className={`doctor-photo-frame ${doctor.imageCrop ? `doctor-photo-${doctor.imageCrop}` : ""}`}
-    >
+    <span className="doctor-photo-frame">
       <Image
-        unoptimized={doctor.imageCrop === "artwork-portrait"}
         className="doctor-photo"
+        style={{ objectPosition: doctor.imagePosition ?? "50% 35%" }}
         src={doctor.image}
         alt={doctor.name}
-        width={160}
-        height={160}
-        sizes="(max-width: 760px) 88px, 144px"
+        fill
+        sizes="(max-width: 760px) 160px, 220px"
       />
     </span>
   ) : (
@@ -24,6 +21,10 @@ export function DoctorIdentity({ doctor }: { doctor: Doctor }) {
   );
 }
 export function DoctorCard({ doctor }: { doctor: Doctor }) {
+  const license = doctor.licenses.find(
+    (l) =>
+      l.published && l.verification === "verified" && l.type === "specialty",
+  );
   return (
     <article className="doctor-card">
       <DoctorIdentity doctor={doctor} />
@@ -32,7 +33,11 @@ export function DoctorCard({ doctor }: { doctor: Doctor }) {
         <h3>
           <Link href={`/medicos/${doctor.slug}`}>{doctor.name}</Link>
         </h3>
-        <p>{doctor.areas.join(" · ")}</p>
+        {license && (
+          <p className="doctor-license">
+            Cédula de especialidad <span>{license.number}</span>
+          </p>
+        )}
         <Link className="text-link" href={`/medicos/${doctor.slug}`}>
           Ver perfil <ArrowRight size={16} />
         </Link>

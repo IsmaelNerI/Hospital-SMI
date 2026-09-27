@@ -84,14 +84,16 @@ export function HospitalStory({
           </Link>
         </div>
         <div className="story-facts">
-          <Image
-            className="story-photo"
-            src="/images/hospital/recepcion-principal.webp"
-            alt="Recepción principal de Hospital SMI"
-            width={1448}
-            height={1086}
-            sizes="(max-width: 760px) 90vw, 560px"
-          />
+          {!institutional && (
+            <Image
+              className="story-photo"
+              src="/images/hospital/recepcion-principal.webp"
+              alt="Recepción principal de Hospital SMI"
+              width={1448}
+              height={1086}
+              sizes="(max-width: 760px) 90vw, 560px"
+            />
+          )}
           <div className="year-fact">
             <strong>2010</strong>
             <span>Presencia en Rincón de Romos</span>
@@ -105,6 +107,20 @@ export function HospitalStory({
             <Clock3 size={22} />
             <span>Hospital abierto las 24 horas</span>
           </div>
+          {institutional && (
+            <ul className="institutional-facts">
+              <li>Hospital privado</li>
+              <li>Presencia en Rincón de Romos desde 2010</li>
+              <li>Hospital abierto 24 horas</li>
+              <li>Actos quirúrgicos autorizados</li>
+              <li>Actos obstétricos autorizados</li>
+              <li>
+                <Link href="/medicos">
+                  Directorio con cédulas profesionales publicadas
+                </Link>
+              </li>
+            </ul>
+          )}
         </div>
       </div>
     </section>
